@@ -30,7 +30,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: space-between;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -44,11 +44,26 @@ h1 {
   padding: 2em;
 }
 
+.homepage {
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  justify-content: space-between;
+}
+
+    pre {
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre;
+            margin: 0;
+            padding: 0;
+        }
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+
 }
 
 button {
@@ -62,10 +77,12 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
 button:focus,
+
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }

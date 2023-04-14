@@ -1,12 +1,11 @@
 <script lang="ts">
     import Nav from './lib/Nav.svelte';
+    import Ascii from './lib/Ascii.svelte';
 </script>
 
-<main> 
+<main class="homepage"> 
   <Nav />
-    <pre class="text-teal-500"> 
-      cat ascii art here
+  <Ascii />
 
-    </pre>
 </main>
 
