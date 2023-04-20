@@ -18,8 +18,7 @@
     </a>
 
     <div class="flex mt-1 space-y-0 align-middle">
-      <a class="text-gray-800 hover:text-blue-400" href="/TicTacToe"
-        >TicTacToe</a
+      <a class="text-gray-800 hover:text-blue-400" href="/TicTacToe">Projects</a
       >
     </div>
 
