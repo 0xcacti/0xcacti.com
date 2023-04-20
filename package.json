@@ -5,9 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "NODE_VERSION=v18.0.0 vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "engines": {
+    "npm": ">=8.0.0 <9.0.0",
+    "node": ">=18.0.0"
   },
   "devDependencies": {
     "@brainandbones/skeleton": "^0.76.0",
