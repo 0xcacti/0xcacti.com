@@ -20,7 +20,7 @@ Created a personal website because I guess I should have one.
 ```
 
 I created the cat on my homepage all by myself. I decided to name him "Glumly".
-If you are an ascii artist that can make cool cats (or other animals), I will pay you in ETH for the art.
+If you are an ascii artist that can make cool cats, I will pay you in ETH for the art.
 I like Glumly, but he is a little goofy.
 
 ### Warning
