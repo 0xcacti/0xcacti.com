@@ -4,9 +4,24 @@ Created a personal website because I guess I should have one.
 
 ### Ascii Art
 
+```
+        |\ _ /|
+       ( o  o )
+        > . </
+        |    \
+        |  |  \
+        |  |   |
+       (_(_f_, ) 0xcacti
+             //
+            ((
+            ))
+            ((
+             v
+```
+
 I created the cat on my homepage all by myself. I decided to name him "Glumly".
 If you are an ascii artist that can make cool cats (or other animals), I will pay you in ETH for the art.
-I like the Glumly, but he is a little goofy.
+I like Glumly, but he is a little goofy.
 
 ### Warning
 
