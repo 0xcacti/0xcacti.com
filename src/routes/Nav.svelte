@@ -1,9 +1,4 @@
 <script>
-  let showMenu = false;
-
-  function toggleNavbar() {
-    showMenu = !showMenu;
-  }
 </script>
 
 <div class="mb-40" style="width:100%">
