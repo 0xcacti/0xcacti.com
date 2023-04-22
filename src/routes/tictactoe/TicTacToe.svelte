@@ -43,7 +43,7 @@
     --e: #377490;
   }
 
-  .container {
+  /* .container {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -53,7 +53,7 @@
     height: 300px;
     width: 300px;
     flex-direction: column;
-  }
+  } */
   .crossVerticalLeft {
     width: 8px;
     position: absolute;
