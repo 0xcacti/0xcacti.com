@@ -1,6 +1,6 @@
 <script>
   import Nav from "./Nav.svelte";
-  import "../app.postcss";
+  import "./app.postcss";
 </script>
 
 <div class="homepage">
