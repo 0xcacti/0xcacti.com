@@ -7,7 +7,6 @@
 }
 
 .board-container {
-  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -16,6 +15,7 @@
   height: 300px;
   width: 300px;
   flex-direction: column;
+  position: relative;
 }
 .crossVerticalLeft {
   width: 8px;
@@ -68,8 +68,8 @@
   top: 10px;
   left: 10px;
   border-radius: 100px;
-  height: 30px;
-  width: 30px;
+  height: 80px;
+  width: 80px;
 }
 
 .o01 {
@@ -77,19 +77,19 @@
   border: 25px solid var(--c);
   top: 10px;
   left: 110px;
-  border-radius: 100px;
-  height: 30px;
-  width: 30px;
+  border-radius: 100%;
+  height: 80px;
+  width: 80px;
 }
 
 .o02 {
   position: absolute;
   border: 25px solid var(--c);
-  top: 10;
-  left: 210;
+  top: 10px;
+  left: 210px;
   border-radius: 100px;
-  height: 30px;
-  width: 30px;
+  height: 80px;
+  width: 80px;
 }
 
 .o10 {
@@ -98,8 +98,8 @@
   top: 110px;
   left: 10px;
   border-radius: 100px;
-  height: 30px;
-  width: 30px;
+  height: 80px;
+  width: 80px;
 }
 
 .o11 {
@@ -108,18 +108,18 @@
   top: 110px;
   left: 110px;
   border-radius: 100px;
-  height: 30px;
-  width: 30px;
+  height: 80px;
+  width: 80px;
 }
 
 .o12 {
   position: absolute;
   border: 25px solid var(--c);
-  top: 110;
-  left: 210;
+  top: 110px;
+  left: 210px;
   border-radius: 100px;
-  height: 30px;
-  width: 30px;
+  height: 80px;
+  width: 80px;
 }
 
 .o20 {
@@ -128,8 +128,8 @@
   top: 210px;
   left: 10px;
   border-radius: 100px;
-  height: 30px;
-  width: 30px;
+  height: 80px;
+  width: 80px;
 }
 
 .o21 {
@@ -138,18 +138,18 @@
   top: 210px;
   left: 110px;
   border-radius: 100px;
-  height: 30px;
-  width: 30px;
+  height: 80px;
+  width: 80px;
 }
 
 .o22 {
   position: absolute;
   border: 25px solid var(--c);
-  top: 210;
-  left: 210;
+  top: 210px;
+  left: 210px;
   border-radius: 100px;
-  height: 30px;
-  width: 30px;
+  height: 80px;
+  width: 80px;
 }
 
 .x00Left {
