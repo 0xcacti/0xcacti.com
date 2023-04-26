@@ -3,10 +3,7 @@
   import "./app.postcss";
 </script>
 
-<div
-  class="homepage border h-full"
-  style="border: 2px solid cyan; height: 100vh;"
->
+<div class="homepage h-full" style="height: 100vh;">
   <Nav />
   <slot />
 </div>

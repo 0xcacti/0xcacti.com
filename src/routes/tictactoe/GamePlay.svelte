@@ -15,12 +15,16 @@
   }
 </script>
 
-<div class="gameplay-container border h-full">
-  <div class="card flex-col justify-center space-y-2 border">
-    <div class="flex border w-full justify-between">
-      <button on:click={onClickFindGame}>Find Game</button>
-      <button on:click={onClickNewGame}>New Game</button>
-    </div>
+<div class="gameplay-container border flex flex-col justify-center">
+  <div class="flex w-full justify-start">
+    <button class="bg-blue-300 rounded-b-none" on:click={onClickFindGame}
+      >Find Game</button
+    >
+    <button on:click={onClickNewGame}>New Game</button>
+  </div>
+  <div
+    class="card flex flex-col justify-center bg-blue-300 rounded-tl-none rounded-bl-lg rounded-br-lg rounded-tr-lg shadow-lg"
+  >
     <div class="w-full border text-center">
       <p class="py-6">
         Create a new game or look up an existing game using the game ID received

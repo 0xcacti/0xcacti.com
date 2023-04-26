@@ -12,7 +12,7 @@
     <nav class="flex flex-col sm:flex-row">
       {#each tabs as tab (tab.id)}
         <button
-          class="text-gray-600 py-4 px-6 block hover:text-blue-500 bg-blue-100 focus:outline-none {activeTab ===
+          class="text-gray-600 rounded-b-none py-4 px-6 hover:text-blue-500 bg-blue-100 focus:outline-none {activeTab ===
           tab.id
             ? 'border-b-2 font-medium border-blue-500'
             : ''}"
