@@ -1,9 +1,31 @@
 <script>
   import "./tictactoe.css";
+  import Tabs from "./Tabs.svelte";
+
+  const tabs = [
+    {
+      id: 1,
+      title: "Tab 1",
+      content: "This is the content of Tab 1.",
+    },
+    {
+      id: 2,
+      title: "Tab 2",
+      content: "This is the content of Tab 2.",
+    },
+    {
+      id: 3,
+      title: "Tab 3",
+      content: "This is the content of Tab 3.",
+    },
+  ];
 </script>
 
 <div class="gameboard-container">
-  <div class="flex align-center border">
+  <div class="container mx-auto mt-10">
+    <Tabs {tabs} />
+  </div>
+  <!-- <div class="flex align-center border">
     <div class="board-container border">
       <div class="crossVerticalLeft" />
       <div class="crossVerticalRight" />
@@ -37,5 +59,5 @@
       <div class="x22Left" />
       <div class="x22Right" />
     </div>
-  </div>
+  </div> -->
 </div>
