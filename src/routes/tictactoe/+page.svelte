@@ -1,11 +1,9 @@
 <script lang="ts">
-  import TicTacToe from "./TicTacToe.svelte";
-  import GamePlay from "./GamePlay.svelte";
+  import TicTacToe from "./rendering/TicTacToe.svelte";
+  import Controler from "./gameplay/Controler.svelte";
 </script>
 
-<section class="border h-full">
-  <div class="game border">
-    <TicTacToe />
-    <GamePlay />
-  </div>
-</section>
+<div class="game">
+  <TicTacToe />
+  <Controler />
+</div>

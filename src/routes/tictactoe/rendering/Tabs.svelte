@@ -27,7 +27,9 @@
   {#each tabs as tab (tab.id)}
     {#if activeTab === tab.id}
       <div class="p-5 bg-blue-100">
-        <h2 class="text-xl font-bold mb-3 bg-green-200">{tab.title}</h2>
+        <h2 class="text-xl font-bold mb-3 bg-green-200">
+          {tab.title}
+        </h2>
         <p>{tab.content}</p>
       </div>
     {/if}
