@@ -28,7 +28,7 @@
       </p>
     </div>
     <div class="card w-full shadow-2xl bg-base-100 items-center border">
-      {#if content === cardFindGame}
+      {#if content === cardFindGame || content === undefined}
         <FindGameCard />
       {:else if content === cardNewGame}
         <NewGameCard />
