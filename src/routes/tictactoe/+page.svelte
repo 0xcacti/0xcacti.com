@@ -4,7 +4,7 @@
 </script>
 
 <section class="border h-full">
-  <div class="game h-full border">
+  <div class="game border">
     <TicTacToe />
     <GamePlay />
   </div>

@@ -28,6 +28,6 @@
     "vite": "^4.2.0"
   },
   "dependencies": {
-    "svelte-web3": "^4.1.0"
+    "svelte-ethers-store": "^2.6.1"
   }
 }
