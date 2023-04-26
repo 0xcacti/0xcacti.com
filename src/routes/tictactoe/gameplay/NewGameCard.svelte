@@ -1,4 +1,4 @@
-<div class="card-body border">
+<div class="card-body">
   <div class="form-control flex-column justify-between space-y-3 py-4">
     <div class="w-full h-10">
       <input

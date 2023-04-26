@@ -15,20 +15,23 @@
   }
 </script>
 
-<div class="gameplay-container border flex flex-col justify-center h-2/3">
+<div class="gameplay-container flex flex-col justify-center h-2/3">
   <div class="flex w-full justify-start">
     <button
-      class="bg-blue-300 rounded-b-none {$cardID === 0
+      class="bg-blue-300 rounded-b-none border-t-2 border-l-2 border-r-2 border-indigo-600 {$cardID ===
+      0
         ? activeCardColor
         : inactiveCardColor}"
       on:click={onClickFindGame}>Find Game</button
     >
     <button
-      class="bg-blue-300 rounded-b-none {$cardID === 0
+      class="bg-blue-300 rounded-b-none border-t-2 border-l-2 border-r-2 border-indigo-600 {$cardID ===
+      0
         ? inactiveCardColor
         : activeCardColor}"
       on:click={onClickNewGame}>New Game</button
     >
+    <div class="flex-grow border-b border-indigo-600" />
   </div>
   <BaseCard {cardID} />
 </div>

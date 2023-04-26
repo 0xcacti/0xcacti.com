@@ -22,9 +22,6 @@
 </script>
 
 <div class="gameboard-container">
-  <div class="container mx-auto mt-10">
-    <Tabs {tabs} />
-  </div>
   <!-- <div class="flex align-center border">
     <div class="board-container border">
       <div class="crossVerticalLeft" />

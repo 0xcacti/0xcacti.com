@@ -1,4 +1,4 @@
-<div class="card-body border">
+<div class="card-body">
   <div class="form-control flex justify-between">
     <div class="flex-grow">
       <input
