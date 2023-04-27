@@ -16,6 +16,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <h1>poop</h1>
         <ConnectButton />
 
         <h1 className={styles.title}>
