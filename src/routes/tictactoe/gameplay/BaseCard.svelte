@@ -15,7 +15,7 @@
 </script>
 
 <div
-  class="card flex border-2 border-indigo-600 flex-col justify-center bg-green-300 rounded-tl-none rounded-bl-lg rounded-br-lg rounded-tr-lg shadow-lg h-full -mt-1"
+  class="card flex z-10 flex-col justify-center bg-green-300 rounded-tl-lg rounded-bl-lg rounded-br-lg rounded-tr-lg shadow-lg h-full -mt-1"
 >
   <div class="w-full text-center">
     <p class="py-6">

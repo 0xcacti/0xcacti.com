@@ -1,6 +1,5 @@
 <script>
   import "./tictactoe.css";
-  import Tabs from "./Tabs.svelte";
 
   const tabs = [
     {
@@ -22,8 +21,8 @@
 </script>
 
 <div class="gameboard-container">
-  <!-- <div class="flex align-center border">
-    <div class="board-container border">
+  <div class="flex align-center">
+    <div class="board-container">
       <div class="crossVerticalLeft" />
       <div class="crossVerticalRight" />
       <div class="crossHorizontalTop" />
@@ -56,5 +55,5 @@
       <div class="x22Left" />
       <div class="x22Right" />
     </div>
-  </div> -->
+  </div>
 </div>
