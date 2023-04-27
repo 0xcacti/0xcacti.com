@@ -1,6 +1,11 @@
 <script lang="ts">
+  import TicTacToe from "./rendering/TicTacToe.svelte";
+  import Controler from "./gameplay/Controler.svelte";
+  import ConnectionManager from "./ConnectionManager.svelte";
 </script>
 
-<section>
-  <h1>meow</h1>
-</section>
+<div class="game">
+  <ConnectionManager />
+  <TicTacToe />
+  <Controler />
+</div>

@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<div class="mb-40" style="width:100%">
+<div class="mb-10" style="width:100%">
   <div
     class="container flex justify-between px-6 py-8 mx-auto"
     style="width:100%"
@@ -12,7 +12,7 @@
       >0xcacti
     </a>
 
-    <div class="flex mt-1 space-y-0 align-middle">
+    <div class="flex sm:mt-1 mt-2 space-y-0 align-middle">
       <a class="text-gray-800 hover:text-blue-400" href="/tictactoe"
         >TicTacToe</a
       >

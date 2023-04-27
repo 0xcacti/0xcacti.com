@@ -46,11 +46,19 @@ h1 {
   padding: 2em;
 }
 
-.homepage {
+.outter-body {
   display: flex;
   flex-direction: column;
   padding: 2px;
   justify-content: space-between;
+  height: 100%;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  justify-content: flex-start;
 }
 
 pre {
@@ -62,6 +70,29 @@ pre {
 
 .ascii-container {
   text-align: center;
+}
+
+.gameboard-container {
+  heght: 100%;
+  width: 60%;
+  align-self: center;
+}
+
+.gameplay-container {
+  heght: 100%;
+  width: 40%;
+  align-self: center;
+}
+
+.full {
+  height: 100%;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+  padding: 2px;
+  height: 100%;
 }
 
 .ascii-container pre {
@@ -86,14 +117,6 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
