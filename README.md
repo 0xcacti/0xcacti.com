@@ -1,29 +1,30 @@
-This is a [RainbowKit](https://rainbowkit.com) + [wagmi](https://wagmi.sh) + [Next.js](https://nextjs.org/) project bootstrapped with [`create-rainbowkit`](https://github.com/rainbow-me/rainbowkit/tree/main/packages/create-rainbowkit).
+## 0xcacti's Personal Website
 
-## Getting Started
+Created a personal website because I guess I should have one.
 
-First, run the development server:
+### Ascii Art
 
-```bash
-npm run dev
+```
+        |\ _ /|
+       ( o  o )
+        > . </
+        |    \
+        |  |  \
+        |  |   |
+       (_(_f_, ) 0xcacti
+             //
+            ((
+            ))
+            ((
+             v
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I created the cat on my homepage all by myself. I decided to name him "Glumly".
+If you are an ascii artist that can make cool cats, I will pay you in ETH for the art.
+I like Glumly, but he is a little goofy.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Warning
 
-## Learn More
-
-To learn more about this stack, take a look at the following resources:
-
-- [RainbowKit Documentation](https://rainbowkit.com) - Learn how to customize your wallet connection flow.
-- [wagmi Documentation](https://wagmi.sh) - Learn how to interact with Ethereum.
-- [Next.js Documentation](https://nextjs.org/docs) - Learn how to build a Next.js application.
-
-You can check out [the RainbowKit GitHub repository](https://github.com/rainbow-me/rainbowkit) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I wrote the website. I have no idea what I am doing.
+I am a much better smart contract developer, but all contracts may have bugs that I missed.  
+USE ALL APPS ON MY WEBSITE AT YOUR OWN RISK.
