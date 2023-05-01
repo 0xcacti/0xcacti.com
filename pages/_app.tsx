@@ -40,8 +40,8 @@ function MyApp({ Component, pageProps }: AppProps) {
             <RainbowKitProvider
                 chains={chains}
                 theme={lightTheme({
-                    accentColor: "#5D9C59",
-                    accentColorForeground: "#F5E617",
+                    accentColor: "#B5CCBA",
+                    accentColorForeground: "#3B3D3C",
                     borderRadius: "small",
                     fontStack: "system",
                     overlayBlur: "small",

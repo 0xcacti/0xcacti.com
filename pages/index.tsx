@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Home: NextPage = () => {
     return (
-        <div className="bg-off-white border h-screen">
+        <div className="bg-white border min-h-screen">
             <Head>
                 <title>0xcacti webby</title>
                 <meta content="Personal Website of 0xcacti" name="meow" />
@@ -22,12 +22,11 @@ const Home: NextPage = () => {
                         </Link>
 
                         <div className="flex sm:mt-1 mt-2 space-y-2 align-middle">
-                            <a
-                                className="text-gray-800 hover:text-dark-green"
-                                href="/projects"
-                            >
-                                Projects
-                            </a>
+                            <Link href="/projects">
+                                <a className="text-gray-800 hover:text-red">
+                                    Projects
+                                </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
