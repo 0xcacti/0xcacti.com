@@ -14,10 +14,10 @@ export default function Projects() {
                 <ConnectButton />
             </div>
 
-            <div className="w-screen flex-col flex-wrap border border-indigo-600 space-y-5 py-12 px-32">
-                <div className="w-full flex space-x-5 flex-row border border-green-300 justify-start">
-                    <div className="flex flex-col justify-apart">
-                        <div className="h-80 w-64 rounded-lg bg-red group-hover:opacity-75  pt-8 text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-1 mx-2 sm:px-24 md:px-20 lg:px-32">
+                <Link href="/tictactoe">
+                    <div className="h-80 min-w-64 bg-red min-w-fit rounded-lg flex flex-col justify-apart pt-4">
+                        <div>
                             <div className={styles.boardContainer}>
                                 <div className={styles.crossVerticalLeft}></div>
                                 <div
@@ -30,55 +30,26 @@ export default function Projects() {
                                     className={styles.crossHorizontalBottom}
                                 ></div>
                             </div>
-                            <h1 className="pt-4 hidden hoverText ">
+                        </div>
+                        <div className="border flex-grow flex flex-col items-center justify-center">
+                            <h1 className="pt-4 text-center hoverText border align-center">
                                 TicTacToe
                             </h1>
                         </div>
                     </div>
+                </Link>
 
-                    <div className="h-80 w-64 rounded-lg bg-blue  group-hover:opacity-75  pt-8 text-center">
-                        <div className={styles.boardContainer}>
-                            <div className={styles.crossVerticalLeft}></div>
-                            <div className={styles.crossVerticalRight}></div>
-                            <div className={styles.crossHorizontalTop}></div>
-                            <div className={styles.crossHorizontalBottom}></div>
-                        </div>
-                        <h1 className="pt-4 hidden hoverText ">TicTacToe</h1>
-                    </div>
-
-                    <div className="h-80 w-64 rounded-lg bg-blue  group-hover:opacity-75">
-                        <div className="container">
-                            <div className="crossVerticalLeft"></div>
-                            <div className="crossVerticalRight"></div>
-                            <div className="crossHorizontalTop"></div>
-                            <div className="crossHorizontalBottom"></div>
-                        </div>
-                    </div>
-
-                    <div className="h-80 w-64 rounded-lg bg-blue  group-hover:opacity-75">
-                        <div className="container">
-                            <div className="crossVerticalLeft"></div>
-                            <div className="crossVerticalRight"></div>
-                            <div className="crossHorizontalTop"></div>
-                            <div className="crossHorizontalBottom"></div>
-                        </div>
-                    </div>
-                    <div className="h-80 w-64 rounded-lg bg-blue  group-hover:opacity-75">
-                        <div className="container">
-                            <div className="crossVerticalLeft"></div>
-                            <div className="crossVerticalRight"></div>
-                            <div className="crossHorizontalTop"></div>
-                            <div className="crossHorizontalBottom"></div>
-                        </div>
-                    </div>
-                    <div className="h-80 w-64 rounded-lg bg-blue  group-hover:opacity-75">
-                        <div className="container">
-                            <div className="crossVerticalLeft"></div>
-                            <div className="crossVerticalRight"></div>
-                            <div className="crossHorizontalTop"></div>
-                            <div className="crossHorizontalBottom"></div>
-                        </div>
-                    </div>
+                <div className="h-80 min-w-64 bg-blue rounded-lg flex items-center justify-center">
+                    2
+                </div>
+                <div className="h-80 bg-red rounded-lg flex items-center justify-center">
+                    3
+                </div>
+                <div className="h-80 bg-blue rounded-lg flex items-center justify-center">
+                    4
+                </div>
+                <div className="h-80 bg-red rounded-lg flex items-center justify-center">
+                    5
                 </div>
             </div>
         </div>
