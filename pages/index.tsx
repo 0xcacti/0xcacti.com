@@ -19,7 +19,7 @@ const Home: NextPage = () => {
                 <div className="mb-10">
                     <div className="container flex justify-between px-6 py-8 mx-auto">
                         <Link href="/">
-                            <a className="text-xl font-bold text-gray-800 md:text-2xl hover:text-red">
+                            <a className="text-xl font-bold text-black md:text-2xl hover:text-red">
                                 0xcacti
                             </a>
                         </Link>
