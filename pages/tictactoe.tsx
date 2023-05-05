@@ -14,7 +14,7 @@ const Home: NextPage = () => {
                 </Link>
                 <ConnectButton />
             </div>
-            <div className="flex flex-col h-screen border border-red mx-auto justify-center">
+            <div className="flex flex-row h-screen border border-red mx-auto justify-center">
                 <div
                     className="flex flex-col  h-2/3 w-1/3"
                     style={{ height: "600px", width: "600px" }}
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
                         <div className={styles.x20Right}></div>
                     </div>
                 </div>
-                <div className="flex flex-row space-y-16 justify-center text-center p-5 h-2/3">
+                <div className="flex flex-col space-y-16 justify-center text-center p-5 h-2/3">
                     <div className="bg-blue p-2 rounded-lg">
                         <h1 className="text-xl font-bold">New Game</h1>
                     </div>
