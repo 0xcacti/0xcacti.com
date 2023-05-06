@@ -58,99 +58,99 @@
 .o00 {
     position: absolute;
     border: 25px solid black;
-    top: 15px;
-    left: 15px;
-    border-radius: 100px;
-    height: 100px;
-    width: 100px;
+    top: 4%;
+    left: 5%;
+    border-radius: 100%;
+    height: 25%;
+    width: 25%;
 }
 
 .o01 {
     position: absolute;
     border: 25px solid black;
-    top: 15px;
-    left: 155px;
+    top: 4%;
+    left: 38%;
     border-radius: 100%;
-    height: 100px;
-    width: 100px;
+    height: 25%;
+    width: 25%;
 }
 
 .o02 {
     position: absolute;
     border: 25px solid black;
-    top: 15px;
-    left: 230px;
-    border-radius: 100px;
-    height: 80px;
-    width: 80px;
+    top: 4%;
+    left: 72%;
+    border-radius: 100%;
+    height: 25%;
+    width: 25%;
 }
 
 .o10 {
     position: absolute;
     border: 25px solid black;
-    top: 110px;
-    left: 10px;
-    border-radius: 100px;
-    height: 80px;
-    width: 80px;
+    top: 38%;
+    left: 5%;
+    border-radius: 100%;
+    height: 25%;
+    width: 25%;
 }
 
 .o11 {
     position: absolute;
     border: 25px solid black;
-    top: 110px;
-    left: 110px;
-    border-radius: 100px;
-    height: 80px;
-    width: 80px;
+    top: 38%;
+    left: 38%;
+    border-radius: 100%;
+    height: 25%;
+    width: 25%;
 }
 
 .o12 {
     position: absolute;
     border: 25px solid black;
-    top: 110px;
-    left: 210px;
-    border-radius: 100px;
-    height: 80px;
-    width: 80px;
+    top: 38%;
+    left: 72%;
+    border-radius: 100%;
+    height: 25%;
+    width: 25%;
 }
 
 .o20 {
     position: absolute;
     border: 25px solid black;
-    top: 210px;
-    left: 10px;
-    border-radius: 100px;
-    height: 80px;
-    width: 80px;
+    top: 72%;
+    left: 5%;
+    border-radius: 100%;
+    height: 25%;
+    width: 25%;
 }
 
 .o21 {
     position: absolute;
     border: 25px solid black;
-    top: 210px;
-    left: 110px;
-    border-radius: 100px;
-    height: 80px;
-    width: 80px;
+    top: 72%;
+    left: 38%;
+    border-radius: 100%;
+    height: 25%;
+    width: 25%;
 }
 
 .o22 {
     position: absolute;
     border: 25px solid black;
-    top: 210px;
-    left: 210px;
-    border-radius: 100px;
-    height: 80px;
-    width: 80px;
+    top: 72%;
+    left: 72%;
+    border-radius: 100%;
+    height: 25%;
+    width: 25%;
 }
 
 .x00Left {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 45px;
-    left: 1px;
+    height: 5%;
+    top: 14%;
+    left: 3%;
     background: black;
     rotate: 45deg;
     border-top-left-radius: 30px;
@@ -160,11 +160,11 @@
 }
 
 .x00Right {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 45px;
-    left: 1px;
+    height: 5%;
+    top: 14%;
+    left: 3%;
     background: black;
     rotate: -45deg;
     border-top-left-radius: 30px;
@@ -174,11 +174,11 @@
 }
 
 .x01Left {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 45px;
-    left: 100px;
+    height: 5%;
+    top: 14%;
+    left: 36%;
     background: black;
     rotate: 45deg;
     border-top-left-radius: 30px;
@@ -188,11 +188,11 @@
 }
 
 .x01Right {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 45px;
-    left: 100px;
+    height: 5%;
+    top: 14%;
+    left: 36%;
     background: black;
     rotate: -45deg;
     border-top-left-radius: 30px;
@@ -202,11 +202,11 @@
 }
 
 .x02Left {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 45px;
-    left: 201px;
+    height: 5%;
+    top: 14%;
+    left: 70%;
     background: black;
     rotate: 45deg;
     border-top-left-radius: 30px;
@@ -216,11 +216,11 @@
 }
 
 .x02Right {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 45px;
-    left: 201px;
+    height: 5%;
+    top: 14%;
+    left: 70%;
     background: black;
     rotate: -45deg;
     border-top-left-radius: 30px;
@@ -230,11 +230,11 @@
 }
 
 .x10Left {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 145px;
-    left: 1px;
+    height: 5%;
+    top: 48%;
+    left: 3%;
     background: black;
     rotate: 45deg;
     border-top-left-radius: 30px;
@@ -244,11 +244,11 @@
 }
 
 .x10Right {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 145px;
-    left: 1px;
+    height: 5%;
+    top: 48%;
+    left: 3%;
     background: black;
     rotate: -45deg;
     border-top-left-radius: 30px;
@@ -258,11 +258,11 @@
 }
 
 .x11Left {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 145px;
-    left: 100px;
+    height: 5%;
+    top: 48%;
+    left: 36%;
     background: black;
     rotate: 45deg;
     border-top-left-radius: 30px;
@@ -272,11 +272,11 @@
 }
 
 .x11Right {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 145px;
-    left: 100px;
+    height: 5%;
+    top: 48%;
+    left: 36%;
     background: black;
     rotate: -45deg;
     border-top-left-radius: 30px;
@@ -286,11 +286,11 @@
 }
 
 .x12Left {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 145px;
-    left: 201px;
+    height: 5%;
+    top: 48%;
+    left: 70%;
     background: black;
     rotate: 45deg;
     border-top-left-radius: 30px;
@@ -300,11 +300,11 @@
 }
 
 .x12Right {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 145px;
-    left: 201px;
+    height: 5%;
+    top: 48%;
+    left: 70%;
     background: black;
     rotate: -45deg;
     border-top-left-radius: 30px;
@@ -314,11 +314,11 @@
 }
 
 .x20Left {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 245px;
-    left: 1px;
+    height: 5%;
+    top: 82%;
+    left: 3%;
     background: black;
     rotate: 45deg;
     border-top-left-radius: 30px;
@@ -328,11 +328,11 @@
 }
 
 .x20Right {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 245px;
-    left: 1px;
+    height: 5%;
+    top: 82%;
+    left: 3%;
     background: black;
     rotate: -45deg;
     border-top-left-radius: 30px;
@@ -342,11 +342,11 @@
 }
 
 .x21Left {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 245px;
-    left: 100px;
+    height: 5%;
+    top: 82%;
+    left: 36%;
     background: black;
     rotate: 45deg;
     border-top-left-radius: 30px;
@@ -356,11 +356,11 @@
 }
 
 .x21Right {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 245px;
-    left: 100px;
+    height: 5%;
+    top: 82%;
+    left: 36%;
     background: black;
     rotate: -45deg;
     border-top-left-radius: 30px;
@@ -370,11 +370,11 @@
 }
 
 .x22Left {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 245px;
-    left: 201px;
+    height: 5%;
+    top: 82%;
+    left: 70%;
     background: black;
     rotate: 45deg;
     border-top-left-radius: 30px;
@@ -384,11 +384,11 @@
 }
 
 .x22Right {
-    width: 100px;
+    width: 30%;
     position: absolute;
-    height: 10px;
-    top: 245px;
-    left: 201px;
+    height: 5%;
+    top: 82%;
+    left: 70%;
     background: black;
     rotate: -45deg;
     border-top-left-radius: 30px;

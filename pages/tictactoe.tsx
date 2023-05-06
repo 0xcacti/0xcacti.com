@@ -24,11 +24,27 @@ const Home: NextPage = () => {
                         <div className={styles.crossVerticalRight}></div>
                         <div className={styles.crossHorizontalTop}></div>
                         <div className={styles.crossHorizontalBottom}></div>
-
+                        {/* 
                         <div className={styles.o00}></div>
                         <div className={styles.o01}></div>
+                        <div className={styles.o02}></div>
+                        <div className={styles.o10}></div>
+                        <div className={styles.o11}></div>
+                        <div className={styles.o12}></div>
+                        <div className={styles.o20}></div>
                         <div className={styles.o21}></div>
-                        <div className={styles.o22}></div>
+                        <div className={styles.o22}></div> */}
+                        <div className={styles.o00}></div>
+                        <div className={styles.o01}></div>
+                        <div className={styles.o02}></div>
+                        <div className={styles.o10}></div>
+                        <div className={styles.o11}></div>
+                        <div className={styles.o12}></div>
+                        <div className={styles.o20}></div>
+                        <div className={styles.x00Left}></div>
+                        <div className={styles.x00Right}></div>
+                        <div className={styles.x01Left}></div>
+                        <div className={styles.x01Right}></div>
                         <div className={styles.x02Left}></div>
                         <div className={styles.x02Right}></div>
                         <div className={styles.x10Left}></div>
@@ -39,6 +55,10 @@ const Home: NextPage = () => {
                         <div className={styles.x12Right}></div>
                         <div className={styles.x20Left}></div>
                         <div className={styles.x20Right}></div>
+                        <div className={styles.x21Left}></div>
+                        <div className={styles.x21Right}></div>
+                        <div className={styles.x22Left}></div>
+                        <div className={styles.x22Right}></div>
                     </div>
                 </div>
                 <div className="flex flex-col space-y-16 justify-center text-center p-5 h-2/3">
