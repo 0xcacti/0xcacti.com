@@ -1,9 +1,15 @@
 import type { NextPage } from "next";
+import { useCallback, useState } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
-import styles from "../styles/TicTacToe.module.css";
+import TicTacToeBoard from "../components/TicTacToeBoard";
 
-const Home: NextPage = () => {
+const TicTacToe: NextPage = () => {
+    const [tokenURI, setTokenURI] = useState(0);
+    const refreshData = useCallback(() => {
+        setTokenURI((tokenURI) => tokenURI + 1);
+    }, []);
+
     return (
         <div className="bg-white border min-h-screen">
             <div className="container flex justify-between px-6 py-10 container mx-auto">
@@ -19,62 +25,31 @@ const Home: NextPage = () => {
                     className="flex flex-col  h-2/3 w-1/3"
                     style={{ height: "600px", width: "600px" }}
                 >
-                    <div className={styles.boardContainer}>
-                        <div className={styles.crossVerticalLeft}></div>
-                        <div className={styles.crossVerticalRight}></div>
-                        <div className={styles.crossHorizontalTop}></div>
-                        <div className={styles.crossHorizontalBottom}></div>
-                        {/* 
-                        <div className={styles.o00}></div>
-                        <div className={styles.o01}></div>
-                        <div className={styles.o02}></div>
-                        <div className={styles.o10}></div>
-                        <div className={styles.o11}></div>
-                        <div className={styles.o12}></div>
-                        <div className={styles.o20}></div>
-                        <div className={styles.o21}></div>
-                        <div className={styles.o22}></div> */}
-                        <div className={styles.o00}></div>
-                        <div className={styles.o01}></div>
-                        <div className={styles.o02}></div>
-                        <div className={styles.o10}></div>
-                        <div className={styles.o11}></div>
-                        <div className={styles.o12}></div>
-                        <div className={styles.o20}></div>
-                        <div className={styles.x00Left}></div>
-                        <div className={styles.x00Right}></div>
-                        <div className={styles.x01Left}></div>
-                        <div className={styles.x01Right}></div>
-                        <div className={styles.x02Left}></div>
-                        <div className={styles.x02Right}></div>
-                        <div className={styles.x10Left}></div>
-                        <div className={styles.x10Right}></div>
-                        <div className={styles.x11Left}></div>
-                        <div className={styles.x11Right}></div>
-                        <div className={styles.x12Left}></div>
-                        <div className={styles.x12Right}></div>
-                        <div className={styles.x20Left}></div>
-                        <div className={styles.x20Right}></div>
-                        <div className={styles.x21Left}></div>
-                        <div className={styles.x21Right}></div>
-                        <div className={styles.x22Left}></div>
-                        <div className={styles.x22Right}></div>
-                    </div>
+                    <TicTacToeBoard
+                        refreshData={refreshData}
+                        tokenID={tokenURI}
+                    />
                 </div>
                 <div className="flex flex-col space-y-16 justify-center text-center p-5 h-2/3">
-                    <div className="bg-blue p-2 rounded-lg">
-                        <h1 className="text-xl font-bold">New Game</h1>
-                    </div>
-                    <div className="bg-red p-2 rounded-lg">
-                        <h1 className="text-xl font-bold">Find Game</h1>
-                    </div>
-                    <div className="bg-blue p-2 rounded-lg">
-                        <h1 className="text-xl font-bold">Mint Game</h1>
-                    </div>
+                    <button onClick={refreshData}>
+                        <div className="bg-blue p-2 rounded-lg">
+                            <h1 className="text-xl font-bold">New Game</h1>
+                        </div>
+                    </button>
+                    <button onClick={refreshData}>
+                        <div className="bg-red p-2 rounded-lg">
+                            <h1 className="text-xl font-bold">Find Game</h1>
+                        </div>
+                    </button>
+                    <button>
+                        <div className="bg-blue p-2 rounded-lg">
+                            <h1 className="text-xl font-bold">Mint Game</h1>
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Home;
+export default TicTacToe;
