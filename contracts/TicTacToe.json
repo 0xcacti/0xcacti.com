@@ -1,0 +1,574 @@
+{
+    "address": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+    "abi": [
+        {
+            "inputs": [],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "inputs": [],
+            "type": "error",
+            "name": "GameNotOver"
+        },
+        {
+            "inputs": [],
+            "type": "error",
+            "name": "GameOver"
+        },
+        {
+            "inputs": [],
+            "type": "error",
+            "name": "IllegalMove"
+        },
+        {
+            "inputs": [],
+            "type": "error",
+            "name": "IncorrectPayment"
+        },
+        {
+            "inputs": [],
+            "type": "error",
+            "name": "InvalidPlayer"
+        },
+        {
+            "inputs": [],
+            "type": "error",
+            "name": "NotYourTurn"
+        },
+        {
+            "inputs": [],
+            "type": "error",
+            "name": "TokenAlreadyMinted"
+        },
+        {
+            "inputs": [],
+            "type": "error",
+            "name": "TokenNotMinted"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "owner",
+                    "type": "address",
+                    "indexed": true
+                },
+                {
+                    "internalType": "address",
+                    "name": "spender",
+                    "type": "address",
+                    "indexed": true
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "id",
+                    "type": "uint256",
+                    "indexed": true
+                }
+            ],
+            "type": "event",
+            "name": "Approval",
+            "anonymous": false
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "owner",
+                    "type": "address",
+                    "indexed": true
+                },
+                {
+                    "internalType": "address",
+                    "name": "operator",
+                    "type": "address",
+                    "indexed": true
+                },
+                {
+                    "internalType": "bool",
+                    "name": "approved",
+                    "type": "bool",
+                    "indexed": false
+                }
+            ],
+            "type": "event",
+            "name": "ApprovalForAll",
+            "anonymous": false
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "user",
+                    "type": "address",
+                    "indexed": true
+                },
+                {
+                    "internalType": "address",
+                    "name": "newOwner",
+                    "type": "address",
+                    "indexed": true
+                }
+            ],
+            "type": "event",
+            "name": "OwnershipTransferred",
+            "anonymous": false
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "from",
+                    "type": "address",
+                    "indexed": true
+                },
+                {
+                    "internalType": "address",
+                    "name": "to",
+                    "type": "address",
+                    "indexed": true
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "id",
+                    "type": "uint256",
+                    "indexed": true
+                }
+            ],
+            "type": "event",
+            "name": "Transfer",
+            "anonymous": false
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_tokenID",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function",
+            "name": "_tokenURI",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "spender",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "id",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function",
+            "name": "approve"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "owner",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function",
+            "name": "balanceOf",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ]
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_playerZero",
+                    "type": "address"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_playerOne",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function",
+            "name": "createNewGame",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ]
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function",
+            "name": "getApproved",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ]
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                },
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function",
+            "name": "isApprovedForAll",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_gameID",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "playerNumber",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "payable",
+            "type": "function",
+            "name": "mint"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_gameID",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "payable",
+            "type": "function",
+            "name": "mintForBothPlayers"
+        },
+        {
+            "inputs": [],
+            "stateMutability": "view",
+            "type": "function",
+            "name": "name",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "inputs": [],
+            "stateMutability": "view",
+            "type": "function",
+            "name": "owner",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ]
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "id",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function",
+            "name": "ownerOf",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "owner",
+                    "type": "address"
+                }
+            ]
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_gameID",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function",
+            "name": "retrieveAllGameInfo",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                },
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ]
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_gameID",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function",
+            "name": "retrieveGame",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ]
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "from",
+                    "type": "address"
+                },
+                {
+                    "internalType": "address",
+                    "name": "to",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "id",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function",
+            "name": "safeTransferFrom"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "from",
+                    "type": "address"
+                },
+                {
+                    "internalType": "address",
+                    "name": "to",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "id",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "bytes",
+                    "name": "data",
+                    "type": "bytes"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function",
+            "name": "safeTransferFrom"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "operator",
+                    "type": "address"
+                },
+                {
+                    "internalType": "bool",
+                    "name": "approved",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function",
+            "name": "setApprovalForAll"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "_baseURI",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function",
+            "name": "setBaseURI"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bytes4",
+                    "name": "interfaceId",
+                    "type": "bytes4"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function",
+            "name": "supportsInterface",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "inputs": [],
+            "stateMutability": "view",
+            "type": "function",
+            "name": "symbol",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_gameID",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_move",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function",
+            "name": "takeTurn"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_tokenID",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function",
+            "name": "tokenURI",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "from",
+                    "type": "address"
+                },
+                {
+                    "internalType": "address",
+                    "name": "to",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "id",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function",
+            "name": "transferFrom"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "newOwner",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function",
+            "name": "transferOwnership"
+        },
+        {
+            "inputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function",
+            "name": "withdraw"
+        }
+    ]
+}
