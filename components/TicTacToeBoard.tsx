@@ -2,6 +2,7 @@ import { BigNumber } from "@ethersproject/bignumber";
 import styles from "../styles/TicTacToe.module.css";
 import { useContractRead } from "wagmi";
 import { erc721ABI } from "wagmi";
+import contractConfig from "../contracts/TicTacToe.json";
 
 interface DisplayDataProps {
     refreshData: () => void;
@@ -10,9 +11,9 @@ interface DisplayDataProps {
 
 const TicTacToeBoard: React.FC<DisplayDataProps> = ({ tokenID }) => {
     const { data, isError, isLoading } = useContractRead({
-        address: "0xB543F9043b387cE5B3d1F0d916E42D8eA2eBA2E0",
-        abi: erc721ABI,
-        functionName: "tokenURI",
+        address: contractConfig.address as `0x${string}`,
+        abi: contractConfig.abi,
+        functionName: "retrieveAllGameInfo",
         args: [BigNumber.from(tokenID)],
     });
 

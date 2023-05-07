@@ -4,6 +4,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
 import TicTacToeBoard from "../components/TicTacToeBoard";
 import contractConfig from "../contracts/TicTacToe.json";
+import NewGamePopUp from "../components/NewGamePopUp";
 
 import { erc721ABI, useContractWrite, usePrepareContractWrite } from "wagmi";
 
@@ -46,7 +47,7 @@ const TicTacToe: NextPage = () => {
                     />
                 </div>
                 <div className="flex flex-col space-y-16 justify-center text-center p-5 h-2/3">
-                    <button
+                    {/* <button
                         disabled={!write}
                         onClick={() => {
                             console.log(write);
@@ -63,7 +64,8 @@ const TicTacToe: NextPage = () => {
                         <div className="bg-blue p-2 rounded-lg">
                             <h1 className="text-xl font-bold">New Game</h1>
                         </div>
-                    </button>
+                    </button> */}
+                    <NewGamePopUp />
                     <button onClick={refreshData}>
                         <div className="bg-red p-2 rounded-lg">
                             <h1 className="text-xl font-bold">Find Game</h1>
