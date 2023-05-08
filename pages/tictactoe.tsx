@@ -4,9 +4,9 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
 import TicTacToeBoard from "../components/TicTacToeBoard";
 import contractConfig from "../contracts/TicTacToe.json";
-import NewGamePopUp from "../components/NewGamePopUp";
+import GameOptions from "../components/GameOptions";
 
-import { erc721ABI, useContractWrite, usePrepareContractWrite } from "wagmi";
+import { useContractWrite, usePrepareContractWrite } from "wagmi";
 
 const TicTacToe: NextPage = () => {
     const [tokenURI, setTokenURI] = useState(0);
@@ -47,35 +47,7 @@ const TicTacToe: NextPage = () => {
                     />
                 </div>
                 <div className="flex flex-col space-y-16 justify-center text-center p-5 h-2/3">
-                    {/* <button
-                        disabled={!write}
-                        onClick={() => {
-                            console.log(write);
-                            write?.();
-                        }}
-                    >
-                        {isLoading && (
-                            <div> console.log(JSON.stringify(data));</div>
-                        )}
-                        {isLoading && <div>Check Wallet</div>}
-                        {isSuccess && (
-                            <div>Transaction: {JSON.stringify(data)}</div>
-                        )}
-                        <div className="bg-blue p-2 rounded-lg">
-                            <h1 className="text-xl font-bold">New Game</h1>
-                        </div>
-                    </button> */}
-                    <NewGamePopUp />
-                    <button onClick={refreshData}>
-                        <div className="bg-red p-2 rounded-lg">
-                            <h1 className="text-xl font-bold">Find Game</h1>
-                        </div>
-                    </button>
-                    <button>
-                        <div className="bg-blue p-2 rounded-lg">
-                            <h1 className="text-xl font-bold">Mint Game</h1>
-                        </div>
-                    </button>
+                    <GameOptions />
                 </div>
             </div>
         </div>
