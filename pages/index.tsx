@@ -26,7 +26,7 @@ const Home: NextPage = () => {
 
                         <div className="flex sm:mt-1 mt-2 space-y-2 align-middle">
                             <Link href="/projects">
-                                <a className="text-gray-800 hover:text-red">
+                                <a className="font-bold text-black md:text-2xl hover:text-red">
                                     Projects
                                 </a>
                             </Link>

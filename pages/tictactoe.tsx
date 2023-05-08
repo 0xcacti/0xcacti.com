@@ -27,8 +27,8 @@ const TicTacToe: NextPage = () => {
     const { data, isLoading, isSuccess, write } = useContractWrite(config);
 
     return (
-        <div className="bg-white border min-h-screen">
-            <div className="container flex justify-between px-6 py-10 container mx-auto">
+        <div className="bg-white flex flex-col justify-start min-h-screen min-w-screen border border-red">
+            <div className="w-full flex justify-between py-10 border border-blue p-5">
                 <Link href="/projects">
                     <a className="text-xl font-bold text-gray-800 md:text-2xl hover:text-red">
                         Projects
@@ -36,19 +36,15 @@ const TicTacToe: NextPage = () => {
                 </Link>
                 <ConnectButton />
             </div>
-            <div className="flex flex-row h-screen border border-red mx-auto justify-center">
-                <div
-                    className="flex flex-col  h-2/3 w-1/3"
-                    style={{ height: "600px", width: "600px" }}
-                >
+            <div className="flex flex-row h-screen border border-red justify-start">
+                <div className="flex flex-col h-full w-2/3 border border-red">
                     <TicTacToeBoard
                         refreshData={refreshData}
                         tokenID={tokenURI}
                     />
+                    test
                 </div>
-                <div className="flex flex-col space-y-16 justify-center text-center p-5 h-2/3">
-                    <GameOptions />
-                </div>
+                <GameOptions />
             </div>
         </div>
     );
