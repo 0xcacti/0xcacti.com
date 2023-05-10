@@ -4,8 +4,8 @@
     left: 0;
     right: 0;
     margin: auto;
-    height: 600px;
-    width: 600px;
+    height: 60%;
+    width: 60%;
     flex-direction: column;
     position: relative;
 }
