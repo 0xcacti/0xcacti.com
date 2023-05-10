@@ -9,16 +9,16 @@ interface DisplayDataProps {
     tokenID: number;
 }
 
-const TicTacToeBoard: React.FC<DisplayDataProps> = ({ tokenID }) => {
-    const { data, isError, isLoading } = useContractRead({
-        address: contractConfig.address as `0x${string}`,
-        abi: contractConfig.abi,
-        functionName: "retrieveAllGameInfo",
-        args: [BigNumber.from(tokenID)],
-    });
+const TicTacToeBoard: React.FC<DisplayDataProps> = () => {
+    // const { data, isError, isLoading } = useContractRead({
+    //     address: contractConfig.address as `0x${string}`,
+    //     abi: contractConfig.abi,
+    //     functionName: "retrieveAllGameInfo",
+    //     args: [BigNumber.from(0)],
+    // });
 
-    // if (isLoading) return <div>Loading...</div>;
-    if (isError) return <div>Error {isError}</div>;
+    // // if (isLoading) return <div>Loading...</div>;
+    // if (isError) return <div>Error {isError}</div>;
 
     return (
         <div className={styles.boardContainer}>
