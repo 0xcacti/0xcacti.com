@@ -70,7 +70,7 @@ const GameOptions: React.FC = () => {
 
             <button onClick={openPopupThreeAndCloseOthers}>
                 <div className="bg-blue p-2 rounded-lg w-full h-12 flex items-center justify-center hover:bg-green transition-colors duration-200">
-                    <h1 className="text-xl font-bold">Find&nbsp;Game</h1>
+                    <h1 className="text-xl font-bold">Mint&nbsp;Game</h1>
                 </div>
             </button>
 

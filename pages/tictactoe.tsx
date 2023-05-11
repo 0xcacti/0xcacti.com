@@ -73,59 +73,15 @@ const TicTacToe: NextPage = () => {
                 <ConnectButton />
             </div>
             <div className="flex flex-row h-screen border border-red justify-start">
-                <div className="flex flex-col h-full w-2/3 border border-red">
+                <div className="flex flex-col justify-center items-start h-full w-2/3 border border-red">
                     <TicTacToeBoard
-                    // refreshData={refreshData}
-                    // tokenID={tokenURI}
+                        refreshData={function (): void {
+                            throw new Error("Function not implemented.");
+                        }}
+                        tokenID={0}
                     />
                 </div>
-                <div className="flex flex-col space-y-16 justify-start text-center p-5 h-full border flex-grow">
-                    <button onClick={openPopupOneAndCloseOthers}>
-                        <div className="bg-blue p-2 rounded-lg w-full h-12 flex items-center justify-center hover:bg-green transition-colors duration-200 mx-auto">
-                            <h1 className="text-xl font-bold">New&nbsp;Game</h1>
-                        </div>
-                    </button>
-
-                    {showPopup1 && (
-                        <div className="flex flex-col items-center justify-center">
-                            <div className="relative w-full mx-auto rounded shadow-lg p-5 border border-red border-4 h-64">
-                                <form onSubmit={handleSubmitNewGame}></form>
-                            </div>
-                        </div>
-                    )}
-
-                    <button onClick={openPopupTwoAndCloseOthers}>
-                        <div className="bg-blue p-2 rounded-lg w-full h-12 flex items-center justify-center hover:bg-green transition-colors duration-200">
-                            <h1 className="text-xl font-bold">
-                                Find&nbsp;Game
-                            </h1>
-                        </div>
-                    </button>
-
-                    {showPopup2 && (
-                        <div className="flex flex-col items-center justify-center">
-                            <div className="relative w-full mx-auto rounded shadow-lg p-5 border border-red h-64">
-                                <form onSubmit={handleSubmitFindGame}></form>
-                            </div>
-                        </div>
-                    )}
-
-                    <button onClick={openPopupThreeAndCloseOthers}>
-                        <div className="bg-blue p-2 rounded-lg w-full h-12 flex items-center justify-center hover:bg-green transition-colors duration-200">
-                            <h1 className="text-xl font-bold">
-                                Find&nbsp;Game
-                            </h1>
-                        </div>
-                    </button>
-
-                    {showPopup3 && (
-                        <div className="flex flex-col items-center justify-center">
-                            <div className="relative w-full mx-auto rounded shadow-lg p-5 border border-red h-64">
-                                <form onSubmit={handleSubmitMintGame}></form>
-                            </div>
-                        </div>
-                    )}
-                </div>
+                <GameOptions />
             </div>
         </div>
     );

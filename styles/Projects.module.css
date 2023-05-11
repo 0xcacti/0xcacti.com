@@ -8,6 +8,7 @@
     width: 200px;
     flex-direction: column;
     position: relative;
+    border: 3px solid blue;
 }
 .boardContainer:hover .hoverText {
     opacity: 1;
