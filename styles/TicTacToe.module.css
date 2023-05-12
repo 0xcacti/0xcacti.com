@@ -4,7 +4,6 @@
     margin-right: auto;
     width: 70%;
     aspect-ratio: 1;
-    flex-direction: column;
     position: relative;
     border: 3px solid blue;
 }
@@ -52,6 +51,44 @@
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
+}
+
+.box00 {
+    border: 3px solid pink;
+    width: 33%;
+    height: 33%;
+    bottom: 33%;
+}
+
+.box01 {
+    border: 3px solid green;
+    width: 33%;
+    height: 33%;
+    top: 0%;
+    left: 34%;
+}
+
+.box02 {
+    border: 3px solid blue;
+    width: 33%;
+    height: 33%;
+}
+.box10 {
+}
+
+.box11 {
+}
+
+.box12 {
+}
+
+.box20 {
+}
+
+.box21 {
+}
+
+.box22 {
 }
 
 .o00 {

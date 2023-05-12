@@ -26,6 +26,15 @@ const TicTacToeBoard: React.FC<DisplayDataProps> = () => {
             <div className={styles.crossVerticalRight}></div>
             <div className={styles.crossHorizontalTop}></div>
             <div className={styles.crossHorizontalBottom}></div>
+            <div className={styles.box00}></div>
+            <div className={styles.box01}></div>
+            <div className={styles.box02}></div>
+            <div className={styles.box10}></div>
+            <div className={styles.box11}></div>
+            <div className={styles.box12}></div>
+            <div className={styles.box20}></div>
+            <div className={styles.box21}></div>
+            <div className={styles.box22}></div>
         </div>
     );
 };
