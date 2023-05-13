@@ -49,7 +49,43 @@ const GameOptions: React.FC = () => {
             {showPopup1 && (
                 <div className="flex flex-col items-center justify-center">
                     <div className="relative w-full mx-auto rounded shadow-lg p-5 border border-red h-64">
-                        <form onSubmit={handleSubmitNewGame}></form>
+                        <form className="w-full">
+                            <div className="flex md:items-center mb-6">
+                                <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+                                    Player One
+                                </label>
+                                <div className="flex-grow">
+                                    <input
+                                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                                        id="inline-password"
+                                        type="password"
+                                        placeholder="******************"
+                                    />
+                                </div>
+                            </div>
+                            <div className="flex md:items-center mb-6">
+                                <label className="block text-gray-500 font-bold md:text-right mb-2 md:mb-0 pr-4">
+                                    Player Two
+                                </label>
+                                <div className="flex-grow">
+                                    <input
+                                        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                                        id="inline-password"
+                                        type="password"
+                                        placeholder="******************"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="flex justify-end">
+                                <button
+                                    className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                                    type="button"
+                                >
+                                    Play!
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             )}
