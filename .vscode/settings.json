@@ -1,0 +1,21 @@
+{
+    "editor.formatOnSave": true,
+
+    "[toml]": {
+        "editor.defaultFormatter": "tamasfe.even-better-toml"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[tsx]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "npm.exclude": "**/lib/**",
+    "search.exclude": { "lib": true }
+}
