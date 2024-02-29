@@ -11,6 +11,11 @@
       ((and (zerop (mod year 4)) (or (not (mod year 100)) (mod year 400))) 366)
       (t 365)))
 
+(defun log-debug (format-string &rest args)
+  (format t "~%DEBUG >>> ~A~%" (apply #'format nil format-string args))
+  (force-output))
+
+
 (defun get-contributions (username year)
   (let* ((token (config:get-github-token config:*config*))
          (start-time (format nil "~A-01-01T00:00:00Z" year))
@@ -43,7 +48,38 @@
     (cl-json:decode-json-from-string 
       (babel:octets-to-string response :encoding :utf-8))))
 
-(defmacro contributions-chart (&key (year 2025) (box-width 10) (box-margin 2) (text-height 15) (scale-factor 1.0))
+(defun assign-level (c-count)
+  (cond ((= c-count 0) 0)
+        ((<= c-count 3) 1) 
+        ((<= c-count 6) 2)
+        ((<= c-count 9) 3)
+        (t 4)))
+
+(defun assign-color (level) 
+  (cond ((= level 0) "#ebedf0")
+        ((= level 1) "#9be9a8")
+        ((= level 2) "#40c463")
+        ((= level 3) "#30a14e")
+        ((= level 4) "#216e39")))
+
+(defun filter-contributions (contributions) 
+  (let* ((data (cdr (assoc :data contributions)))
+         (user (cdr (assoc :user data)))
+         (contrib-collection (cdr (assoc :CONTRIBUTIONS-COLLECTION user)))
+         (contrib-cal (cdr (assoc :CONTRIBUTION-CALENDAR contrib-collection)))
+         (weeks (cdr (assoc :WEEKS contrib-cal))))
+  (loop for week in weeks append
+      (loop for day in (cdr (assoc :CONTRIBUTION-DAYS week)) collect
+            (list 
+              :date (cdr (assoc :DATE day))
+              :count (cdr (assoc :CONTRIBUTION-COUNT day))
+              :level (assign-level (cdr (assoc :CONTRIBUTION-COUNT day))))))))
+
+(defun test () 
+  (let ((contributions (get-contributions "0xcacti" 2024)))
+    (format t "~A~%" (filter-contributions contributions))))
+
+(defmacro contributions-chart (&key (year 2024) (box-width 10) (box-margin 2) (text-height 15) (scale-factor 1.0))
   `(with-html-output (*standard-output*)
      (let* ((height (* 722 ,scale-factor))
             (width (* 112 ,scale-factor))
@@ -52,7 +88,8 @@
             (text-height (* ,text-height ,scale-factor))
             (above-offset (* ,text-height 2))
             (left-offset (+ (* ,box-width 2) 15))
-            (contributions (get-contributions "0xcacti"  ,year)))
+            (contributions (get-contributions "0xcacti"  ,year))
+            (filtered-data (filter-contributions contributions)))
 
        (htm
          (:svg 
@@ -104,7 +141,8 @@
           (htm
             (:g
              :transform (format nil "translate(~A, ~A)" left-offset above-offset)
-             (let ((days-in-year (get-number-of-days-in-year 2024)))
+             (let* ((days-in-year (get-number-of-days-in-year 2024))
+                   (days-left-in-year days-in-year))
                (loop for week from 0 to 52 do
                      (htm
                        (:g
@@ -113,16 +151,23 @@
                          ((= week 0)
                           (let ((day-idx (get-first-day-of-year 2024)))
                             (loop for day from day-idx to 6
-                               do (decf days-in-year)
+                               do (decf days-left-in-year)
                                (htm
                                  (:rect
                                   :x 0
                                   :y (* day (+ box-width box-margin))
                                   :width box-width
                                   :height box-width
-                                  :fill "#5c6ac4")))))
+                                  :fill (assign-color 
+                                         (getf 
+                                           (nth (- days-in-year days-left-in-year) filtered-data)
+                                           :level))
+                                  )))))
                          ((= week 52)
-                          (loop for day from 0 below days-in-year
+                          (let ((remaining days-left-in-year))
+                          (loop for day from 0 below remaining
+                                for index = (- days-in-year days-left-in-year)
+                                do (decf days-left-in-year)
                                 do
                                   (htm
                                     (:rect
@@ -130,14 +175,23 @@
                                      :y (* day (+ box-width box-margin))
                                      :width box-width
                                      :height box-width
-                                     :fill "#5c6ac4"))))
+                                   :fill (assign-color 
+                                          (getf 
+                                            (nth index filtered-data)
+                                            :level))
+                                    )))))
                          (t
                           (loop for day from 0 to 6
-                                do (decf days-in-year)
+                                do (decf days-left-in-year)
                                 (htm
                                   (:rect
                                    :x 0
                                    :y (* day (+ box-width box-margin))
                                    :width box-width
                                    :height box-width
-                                   :fill "#5c6ac4")))))))))))))))))
+                                   :fill (assign-color 
+                                          (getf 
+                                            (nth (- days-in-year days-left-in-year) filtered-data)
+                                            :level))
+
+                                   )))))))))))))))))
