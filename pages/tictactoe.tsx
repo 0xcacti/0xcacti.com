@@ -9,20 +9,20 @@ import GameOptions from "../components/GameOptions";
 import { useContractWrite, usePrepareContractWrite } from "wagmi";
 
 const TicTacToe: NextPage = () => {
-    // const [tokenURI, setTokenURI] = useState(0);
-    // const refreshData = useCallback(() => {
-    //     setTokenURI((tokenURI) => tokenURI + 1);
-    // }, []);
+    const [tokenURI, setTokenURI] = useState(0);
+    const refreshData = useCallback(() => {
+        setTokenURI((tokenURI) => tokenURI + 1);
+    }, []);
 
-    // const { config } = usePrepareContractWrite({
-    //     address: contractConfig.address as `0x${string}`,
-    //     abi: contractConfig.abi,
-    //     functionName: "createNewGame",
-    //     args: [
-    //         "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-    //         "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
-    //     ],
-    // });
+    const { config } = usePrepareContractWrite({
+        address: contractConfig.address as `0x${string}`,
+        abi: contractConfig.abi,
+        functionName: "createNewGame",
+        args: [
+            "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+            "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+        ],
+    });
 
     const handleSubmitNewGame = (e: React.FormEvent) => {
         e.preventDefault();
