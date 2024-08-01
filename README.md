@@ -12,3 +12,6 @@ things I wanted to build.  Then I remembered that my website stinks.
 So I decided to re-write it using Common Lisp and HTMX, that way it 
 would be sufficiently weird and fun and I could build a real project in 
 lisp! 
+
+I am brand new to lisp, so I imagine it will take me a while to get
+this project finished, but I'm excited and appreciate any feedback.
