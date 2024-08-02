@@ -15,3 +15,9 @@ lisp!
 
 I am brand new to lisp, so I imagine it will take me a while to get
 this project finished, but I'm excited and appreciate any feedback.
+
+## Requirements 
+
+- [ sblc ] (https://www.sbcl.org/)
+- [ quicklisp ](https://www.quicklisp.org/beta/)
+
