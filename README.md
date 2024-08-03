@@ -16,6 +16,9 @@ lisp!
 I am brand new to lisp, so I imagine it will take me a while to get
 this project finished, but I'm excited and appreciate any feedback.
 
+TODO: 
+- [ ] Figure out how to structure the project
+
 ## Requirements 
 
 - [ sblc ] (https://www.sbcl.org/)
