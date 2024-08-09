@@ -18,9 +18,11 @@ this project finished, but I'm excited and appreciate any feedback.
 
 TODO: 
 - [ ] Figure out how to structure the project
+- [ ] Learn ASDF
 
 ## Requirements 
 
 - [ sblc ] (https://www.sbcl.org/)
 - [ quicklisp ](https://www.quicklisp.org/beta/)
+
 
