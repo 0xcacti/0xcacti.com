@@ -18,7 +18,8 @@ this project finished, but I'm excited and appreciate any feedback.
 
 TODO: 
 - [ ] Figure out how to structure the project
-- [ ] Learn ASDF
+- [x] Learn ASDF
+- [ ] Learn HTMX
 
 ## Requirements 
 
