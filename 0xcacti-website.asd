@@ -4,7 +4,12 @@
   :license  "MIT"
   :version "0.0.1"
   :serial t
-  :depends-on ()   
-  :components ((:module "src")))
+  :depends-on (:hunchentoot
+               :cl-who
+               :parenscript
+               :str)   
+  :components ((:module "src"
+                :components ((:file "package")
+                             (:file "main")))))
 
 
