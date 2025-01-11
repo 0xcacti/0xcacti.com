@@ -36,7 +36,7 @@
 (define-easy-handler (hello :uri "/") ()
   (setf (content-type*) "text/html")
   (with-base-page (:title "0xcacti")
-    (:div :class "container mx-auto  px-4 py-8 border-2 border-emerald-500"
+    (:div :class "container mx-auto flex justify-center items-center px-4 py-8 border-2 border-emerald-500"
     (:h1 "Hello, Sailor"))
     ))
 
