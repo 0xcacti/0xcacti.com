@@ -18,4 +18,5 @@
 
 (define-easy-handler (hello :uri "/") ()
   (setf (content-type*) "text/html")
-  "<h1>Hello, World!</h1>")
+  "<h1>Hello, Lindsay")
+
