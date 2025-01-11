@@ -1,4 +1,4 @@
 (defpackage #:0xcacti-website
-  (:use #:cl #:hunchentoot)
+  (:use #:cl #:hunchentoot :cl-who)
   (:export #:start-server
            #:stop-server))
