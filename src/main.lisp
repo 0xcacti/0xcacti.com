@@ -33,10 +33,19 @@
        ,@body))))
 
 
-(define-easy-handler (hello :uri "/") ()
+(define-easy-handler (home :uri "/") ()
   (setf (content-type*) "text/html")
   (with-base-page (:title "0xcacti")
-    (:div :class "container mx-auto flex justify-center items-center px-4 py-8 border-2 border-emerald-500"
-    (:h1 "Hello, Sailor"))
+    (:div :class "container mx-auto flex justify-between items-center px-4 py-8 border-2 border-emerald-500"
+     (:div :class "flex justify-center items-center"
+      (:h1 "Hello, Sailor"))
+     (:div :class "flex justify-center items-center"
+      (:a :href "/about" "about"))
+    )
     ))
 
+(define-easy-handler (projects :uri "/about") () 
+  (setf (content-type*) "text/html")
+  (with-base-page (:title "About")
+    (:div :class "container mx-auto flex justify-center items-center px-4 py-8 border-2 border-emerald-500"
+    (:h1 "About"))))
