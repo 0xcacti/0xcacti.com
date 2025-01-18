@@ -29,19 +29,30 @@
        (:title ,title)
        (:script :src "/static/htmx.min.js")
        (:script :src "https://cdn.tailwindcss.com"))
-      (:body
+      (:body :class "min-h-screen flex flex-col"
         (:div :class "container mx-auto flex justify-between items-center px-4 py-8 border-2 border-emerald-500"
                (:div :class "flex justify-center items-center text-4xl"
                      (:a :href "/" "0xcacti"))
-               (:div :class "flex justify-center items-center text-4xl"
+               (:div :class "flex justify-center items-center text-2xl"
                      (:a :href "/about" "about")))
        ,@body))))
 
 (define-easy-handler (home :uri "/") ()
   (setf (content-type*) "text/html")
   (with-base-page (:title "0xcacti")
-      (:h1 "Welcome to meowworld")
-    ))
+    (:div :class "container mx-auto flex flex-col flex-1 border-4 border-blue-500 justify-center items-center"
+      (:pre :class "text-red-500" "    |\\_ /|   
+   ( o  o )
+    > . <&#47;
+    |    \\
+    |  |  \\
+    |  |   | 
+   (_(_f_, ) 0xcacti
+         //
+        ((
+         ))  
+        ((
+         v"))))
 
 (define-easy-handler (projects :uri "/about") () 
   (setf (content-type*) "text/html")
