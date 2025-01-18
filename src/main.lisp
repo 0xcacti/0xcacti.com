@@ -30,18 +30,17 @@
        (:script :src "/static/htmx.min.js")
        (:script :src "https://cdn.tailwindcss.com"))
       (:body
+        (:div :class "container mx-auto flex justify-between items-center px-4 py-8 border-2 border-emerald-500"
+               (:div :class "flex justify-center items-center text-4xl"
+                     (:a :href "/" "0xcacti"))
+               (:div :class "flex justify-center items-center text-4xl"
+                     (:a :href "/about" "about")))
        ,@body))))
-
 
 (define-easy-handler (home :uri "/") ()
   (setf (content-type*) "text/html")
   (with-base-page (:title "0xcacti")
-    (:div :class "container mx-auto flex justify-between items-center px-4 py-8 border-2 border-emerald-500"
-     (:div :class "flex justify-center items-center"
-      (:h1 "Hello, Sailor"))
-     (:div :class "flex justify-center items-center"
-      (:a :href "/about" "about"))
-    )
+      (:h1 "Welcome to meowworld")
     ))
 
 (define-easy-handler (projects :uri "/about") () 
