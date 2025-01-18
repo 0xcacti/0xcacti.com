@@ -17,7 +17,7 @@ I am brand new to lisp, so I imagine it will take me a while to get
 this project finished, but I'm excited and appreciate any feedback.
 
 TODO: 
-- [ ] Figure out how to structure the project
+- [x] Figure out how to structure the project
 - [x] Learn ASDF
 - [ ] Learn HTMX
 
@@ -27,3 +27,10 @@ TODO:
 - [ quicklisp ](https://www.quicklisp.org/beta/)
 
 
+### TODO 
+
+- [ ] Add a blog 
+- [ ] Add an about me section
+- [ ] Add a section to see the projects 
+- [ ] Take on programming languages (as hx-get)
+- [ ] Commit history 

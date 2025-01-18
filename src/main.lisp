@@ -30,7 +30,7 @@
        (:script :src "/static/htmx.min.js")
        (:script :src "https://cdn.tailwindcss.com"))
       (:body :class "min-h-screen flex flex-col"
-        (:div :class "container mx-auto flex justify-between items-center px-4 py-8 border-2 border-emerald-500"
+        (:div :class "container mx-auto flex justify-between items-center px-4 py-8"
                (:div :class "flex justify-center items-center text-4xl"
                      (:a :href "/" "0xcacti"))
                (:div :class "flex justify-center items-center text-2xl"
@@ -40,7 +40,19 @@
 (define-easy-handler (home :uri "/") ()
   (setf (content-type*) "text/html")
   (with-base-page (:title "0xcacti")
-    (:div :class "container mx-auto flex flex-col flex-1 border-4 border-blue-500 justify-center items-center"
+    (:div :class "container mx-auto flex flex-col flex-1 justify-between items-center"
+     (:div :class "text-xl w-full flex justify-center items-center border-4 border-emerald-500"
+      "Christian, software engineer, programming language nerd, ascii art fan")
+      
+     (:div :class "w-full flex-1 grid grid-cols-1 lg:grid-cols-3 gap-4" ; Added flex-1
+      (:div :class "border-4 border-purple-500 p-4 flex justify-center min-h-full" ; Added min-h-full
+       "Recent Projcts")
+      (:div :class "border-4 border-purple-500 p-4 flex justify-center min-h-full"
+       "Languages")
+      (:div :class "border-4 border-purple-500 p-4 flex justify-center min-h-full"
+       "Section 3"))
+
+     (:div :class "flex justify-end items-center w-full border-4 border-emerald-500 "
       (:pre :class "text-red-500" "    |\\_ /|   
    ( o  o )
     > . <&#47;
@@ -52,10 +64,10 @@
         ((
          ))  
         ((
-         v"))))
+         v")))))
 
-(define-easy-handler (projects :uri "/about") () 
+(define-easy-handler (projects :uri "blog") () 
   (setf (content-type*) "text/html")
-  (with-base-page (:title "About")
-    (:div :class "container mx-auto flex justify-center items-center px-4 py-8 border-2 border-emerald-500"
-    (:h1 "About"))))
+  (with-base-page (:title "blog")
+    (:div :class "container mx-auto flex justify-center items-center px-4 py-8"
+    (:h1 "Blog"))))
