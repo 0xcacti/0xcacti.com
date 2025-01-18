@@ -8,8 +8,22 @@
                :cl-who
                :parenscript
                :str)   
-  :components ((:module "src"
-                :components ((:file "package")
-                             (:file "main")))))
+  :components 
+  ((:module "src"
+    :components 
+    ((:file "package")
+     (:file "main")
+     (:file "server")
+     ;; (:module "components" 
+     ;;  :components
+     ;;  ((:file "package")
+     ;;   (:file "base")
+     ;;   (:file "icons")))
+     (:module "routes" 
+       :components
+       ((:file "package")
+        (:file "routes")
+        (:file "home")))
+     ))))
 
 
