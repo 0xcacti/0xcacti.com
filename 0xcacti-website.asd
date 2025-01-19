@@ -3,27 +3,27 @@
   :author "0xcacti"
   :license  "MIT"
   :version "0.0.1"
-  :serial t
   :depends-on (:hunchentoot
                :cl-who
                :parenscript
                :str)   
   :components 
   ((:module "src"
+    :serial t
     :components 
-    ((:file "package")
-     (:file "main")
-     (:file "server")
-     ;; (:module "components" 
-     ;;  :components
-     ;;  ((:file "package")
-     ;;   (:file "base")
-     ;;   (:file "icons")))
+    ((:module "components" 
+      :serial t
+      :components
+      ((:file "package")
+       (:file "base")
+       (:file "icons")))
      (:module "routes" 
-       :components
-       ((:file "package")
-        (:file "routes")
-        (:file "home")))
-     ))))
-
-
+      :serial t
+      :depends-on ("components")
+      :components
+      ((:file "package")
+       (:file "routes")
+       (:file "home")))
+     (:file "package")
+     (:file "server")
+     (:file "main")))))

@@ -1,8 +1,7 @@
 (in-package #:0xcacti-website.routes)
 
 (defvar *route-handlers*
-  `(("/" . home-handler)
-    ("/blog" . blog-handler)))
+  `(("/" . home-handler)))
 
 (defun register-routes ()
   (loop for (uri . handler) in *route-handlers* do 
@@ -12,4 +11,6 @@
 
 (defun setup-routes ()
   (setf *dispatch-table* nil)
-  (register-routes))
+  (register-routes)
+  (format t "Routes registered: ~A~%" *dispatch-table*))
+

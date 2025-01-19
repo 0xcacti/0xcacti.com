@@ -5,7 +5,7 @@
 (defvar *static-dir*
   (merge-pathnames #p"static/" (asdf:system-source-directory :0xcacti-website)))
 
-(defun start-server (&key (port 3000))
+(defun start-server (port)
   (when *server*
     (stop-server))
   (setf *server* 
@@ -13,8 +13,7 @@
   (push (create-folder-dispatcher-and-handler 
           "/static/" *static-dir*)
         *dispatch-table*)
-  (start *server*)
-  (format t "Server started on port ~A~%" port))
+  (start *server*))
 
 (defun stop-server ()
   (when *server* 

@@ -2,7 +2,7 @@
 
 (defun home-handler ()
   (setf (content-type*) "text/html")
-  (with-base-page (:title "0xcacti")
+  (components:with-base-page (:title "0xcacti")
     (:div :class "container mx-auto flex flex-col flex-1 justify-between items-center"
      (:div :class "text-xl w-full flex justify-center items-center border-4 border-emerald-500"
       "Christian, software engineer, programming language nerd, ascii art fan")
