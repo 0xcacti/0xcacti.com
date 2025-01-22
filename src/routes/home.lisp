@@ -59,7 +59,7 @@
                          :fill "#5c6ac4"
                           (if (= week 0)
                               (str "Jan") 
-                              (str (nth (1- month) '("" "Feb" "Mar" "Apr" "May" "Jun" 
+                              (str (nth (1- month) '("Jan" "Feb" "Mar" "Apr" "May" "Jun" 
                                                    "Jul" "Aug" "Sep" "Oct" "Nov" "Dec")))))))))))
 
         (htm
@@ -118,30 +118,7 @@
         ((
          v")))))
 
-;; <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
-;;   {/* Week groups */}
-;;   <g transform={`translate(${(blockSize + blockMargin) * weekIndex}, 0)`}>
-;;     {/* Individual day rectangles */}
-;;     <rect
-;;       x={0}
-;;       y={labelHeight + (blockSize + blockMargin) * dayIndex}
-;;       width={blockSize}
-;;       height={blockSize}
-;;       rx={blockRadius}
-;;       ry={blockRadius}
-;;       fill={colorScale[activity.level]}
-;;       data-date={activity.date}
-;;       data-level={activity.level}
-;;     />
-;;   </g>
-;; </svg>
 
-;; 0 1 2 3 4 5 6
-;; m t w t f s s
-
-;; + 1
-
-;; returns the 1st day of year from 0 - 6 
 (defun get-first-day-of-year (year)
   (let* ((date (encode-universal-time 0 0 0 1 1 year))
          (day-index (nth-value 6 (decode-universal-time date))))
@@ -153,49 +130,49 @@
       ((and (zerop (mod year 4)) (or (not (mod year 100)) (mod year 400))) 366)
       (t 365)))
 
-(defun get-contributions (username token (&key year 2025))
-  (let* ((start-time ""
-         (end-time "")))
-    (cond 
-      ((= year 2025)
-          (setf start-time "2025-01-01T00:00:00Z")
-          (setf end-time "2025-12-31T23:59:59Z"))
-      ((= year 2024)
-          (setf start-time "2024-01-01T00:00:00Z")
-          (setf end-time "2024-12-31T23:59:59Z"))
-      ((= year 2023)
-          (setf start-time "2023-01-01T00:00:00Z")
-          (setf end-time "2023-12-31T23:59:59Z"))
-      ((= year 2022)
-          (setf start-time "2022-01-01T00:00:00Z")
-          (setf end-time "2022-12-31T23:59:59Z"))
-      (t 
-       (setf start-time "2025-01-01T00:00:00Z")
-       (setf end-time "2025-12-31T23:59:59Z")))
-
-    (let ((query "
-       query($username: String!, $from: DateTime, $to: DateTime) {
-         user(login: $username) {
-           contributionsCollection(from: $from, to: $to) {
-             contributionCalendar {
-               totalContributions
-               weeks {
-                 contributionDays {
-                   contributionCount
-                   date
-                 }
-               }
-             }
-           }
-         }
-      }"))
-      (dex:post "https://api.github.com/graphql"
-                :headers `(("Authorization" . ,(format nil "Bearer ~A" token)))
-                :content (cl-json:encode-json 
-                           '(:query query 
-                             :variables 
-                              (:username username
-                               :from start-time
-                               :to end-time)))))))
-
-
+;;(defun get-contributions (username token (&key year 2025))
+;;  (let* ((start-time ""
+;;         (end-time "")))
+;;    (cond 
+;;      ((= year 2025)
+;;          (setf start-time "2025-01-01T00:00:00Z")
+;;          (setf end-time "2025-12-31T23:59:59Z"))
+;;      ((= year 2024)
+;;          (setf start-time "2024-01-01T00:00:00Z")
+;;          (setf end-time "2024-12-31T23:59:59Z"))
+;;      ((= year 2023)
+;;          (setf start-time "2023-01-01T00:00:00Z")
+;;          (setf end-time "2023-12-31T23:59:59Z"))
+;;      ((= year 2022)
+;;          (setf start-time "2022-01-01T00:00:00Z")
+;;          (setf end-time "2022-12-31T23:59:59Z"))
+;;      (t 
+;;       (setf start-time "2025-01-01T00:00:00Z")
+;;       (setf end-time "2025-12-31T23:59:59Z")))
+;;
+;;    (let ((query "
+;;       query($username: String!, $from: DateTime, $to: DateTime) {
+;;         user(login: $username) {
+;;           contributionsCollection(from: $from, to: $to) {
+;;             contributionCalendar {
+;;               totalContributions
+;;               weeks {
+;;                 contributionDays {
+;;                   contributionCount
+;;                   date
+;;                 }
+;;               }
+;;             }
+;;           }
+;;         }
+;;      }"))
+;;      (dex:post "https://api.github.com/graphql"
+;;                :headers `(("Authorization" . ,(format nil "Bearer ~A" token)))
+;;                :content (cl-json:encode-json 
+;;                           '(:query query 
+;;                             :variables 
+;;                              (:username username
+;;                               :from start-time
+;;                               :to end-time)))))))
+;;
+;;
