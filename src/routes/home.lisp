@@ -42,7 +42,7 @@
 
         (htm
           (:g 
-            :transform "translate(30, 20)"
+            :transform "translate(40, 20)"
             (let* ((first-date (encode-universal-time 0 0 0 1 1 2024))
                    (first-day-in-year (get-first-day-of-year 2024))
                    (last-month -1))
