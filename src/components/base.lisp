@@ -4,6 +4,8 @@
   `(with-html-output-to-string (*standard-output* nil :prologue t)
      (:html
       (:head
+       (:meta :charset "utf-8")
+       (:meta :name "viewport" :content "width=device-width, initial-scale=1.0")
        (:title ,title)
        (:script :src "/static/htmx.min.js")
        (:script :src "https://cdn.tailwindcss.com"))
