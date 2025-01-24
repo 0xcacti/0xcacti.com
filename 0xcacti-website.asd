@@ -18,7 +18,8 @@
       :components
       ((:file "package")
        (:file "base")
-       (:file "icons")))
+       (:file "icons")
+       (:file "contributions")))
      (:module "routes" 
       :serial t
       :depends-on ("components")
