@@ -15,25 +15,13 @@
       )
 
      (:div :class "flex justify-end items-center w-full border-4 border-emerald-500"
-  (:script "
-    function updateBoxSize() {
-      const box = document.querySelector('.contributions-chart svg');
-      const width = window.innerWidth;
-      if (width < 768) {
-        box.style.transform = 'scale(1.5)';
-      } else {
-        box.style.transform = 'scale(1)';
-      }
-    }
-    window.addEventListener('resize', updateBoxSize);
-    window.addEventListener('load', updateBoxSize);
-  ")
-  (:div :class "contributions-chart flex-grow flex justify-center items-center" 
-    (components:contributions-chart 
-      :box-width 20  ; default size
-      :box-margin 4 
-      :text-height 20 
-      :scale-factor 1.0))
+  
+      (:div :class "w-full flex-grow h-64 border-4 border-red-500" 
+          (components:contributions-chart 
+            :box-width 20
+            :box-margin 4 
+            :text-height 20 
+            :scale-factor 1.0))
 
         
 
