@@ -14,45 +14,43 @@
 
 (defmacro contributions-chart (&key (box-width 10) (box-margin 2) (text-height 15) (scale-factor 1.0))
   `(with-html-output (*standard-output*)
-     (let* ((box-width-pct 1.385) ; 0.0138504155 * 100
-            (box-height-pct 8.197) ; 0.0819672131 * 100
-            (box-margin-pct 0.3)   ; 0.003 * 100
-            (left-offset-pct 5.540) ; 0.055401662 * 100
-            (day-above-offset-pct 24.590) ; 0.2459016393 * 100
-            (month-top-offset-pct 16.393)) ; 0.1639344262 * 100)
+     (let* (
+            (height (* 722 ,scale-factor))
+            (width (* 112 ,scale-factor))
+            (box-width (* ,box-width ,scale-factor))
+            (box-margin (* ,box-margin ,scale-factor))
+            (text-height (* ,text-height ,scale-factor))
+            (above-offset (* ,text-height 2))
+            (left-offset (+ (* ,box-width 2) 15)))
+
        (htm
          (:svg 
-          :class "w-full h-full"
-          :width "100%"    
-          :height "100%"   
-          :viewBox "0 0 100 100"
-          :preserveAspectRatio "xMidYMid meet"
+          :viewBox (format nil "0 0 ~A ~A" height width)
+          :preserveAspectRatio "none"
           
-          ;; Day labels
           (htm
             (:g
-             :transform (format nil "translate(0, ~A)" day-above-offset-pct)
+             :transform (format nil "translate(0, ~A)" above-offset)
              (loop for day from 0 below 7
                 when (member day '(1 3 5))
                 do
                   (htm
                     (:text
-                     :x "0"
-                     :y (format nil "~A" (* (1+ day) (+ box-height-pct box-margin-pct)))
+                     :x 0
+                     :y (write-to-string (- (* (1+ day) (+ box-width box-margin)) 2))
                      :fill "#5c6ac4"
-                     :class "text-xs"
+                     :style (format nil "font-size: ~Apx;" ,text-height) 
                      (str (nth day '("Sun" "Mon" "Tue" "Wed" "Thu" "Fri" "Sat"))))))))
 
-          ;; Month labels
+          ;; Month labels - Using left-offset and above-offset/2
           (htm
             (:g
-             :transform (format nil "translate(~A, ~A)" left-offset-pct month-top-offset-pct)
+             :transform (format nil "translate(~A, ~A)" left-offset (/ above-offset 2))
              (let* ((first-date (encode-universal-time 0 0 0 1 1 2024))
                     (first-day-in-year (get-first-day-of-year 2024))
                     (last-month -1))
                (loop for week from 0 to 52
-                     for date = (- (+ first-date (* week 7 24 60 60)) 
-                                 (* first-day-in-year 24 60 60))
+                     for date = (- (+ first-date (* week 7 24 60 60)) (* first-day-in-year 24 60 60))
                      for month = (nth-value 4 (decode-universal-time date))
                      when (/= month last-month)
                      do
@@ -60,26 +58,24 @@
                          (setf last-month month)
                          (htm
                            (:text
-                            :x (format nil "~A" (* week (+ box-width-pct box-margin-pct)))
-                            :y "0"
+                            :x (write-to-string (* week (+ box-width box-margin)))
+                            :y 0
                             :fill "#5c6ac4"
-                            :class "text-xs"
+                            :style (format nil "font-size: ~Apx;" ,text-height) 
                             (if (= week 0)
                                 (str "Jan")
-                                (str (nth (1- month) 
-                                        '("" "Feb" "Mar" "Apr" "May" "Jun" 
-                                          "Jul" "Aug" "Sep" "Oct" "Nov" "Dec")))))))))))
+                                (str (nth (1- month) '("" "Feb" "Mar" "Apr" "May" "Jun" 
+                                                     "Jul" "Aug" "Sep" "Oct" "Nov" "Dec"))))))))))
 
-          ;; Contribution boxes
+          ;; Contribution boxes - Using left-offset and above-offset
           (htm
             (:g
-             :transform (format nil "translate(~A, ~A)" left-offset-pct day-above-offset-pct)
+             :transform (format nil "translate(~A, ~A)" left-offset above-offset)
              (let ((days-in-year (get-number-of-days-in-year 2024)))
                (loop for week from 0 to 52 do
                      (htm
                        (:g
-                        :transform (format nil "translate(~A, 0)" 
-                                        (* week (+ box-width-pct box-margin-pct)))
+                        :transform (format nil "translate(~A, 0)" (* week (+ box-width box-margin)))
                         (cond 
                          ((= week 0)
                           (let ((day-idx (get-first-day-of-year 2024)))
@@ -87,28 +83,28 @@
                                do (decf days-in-year)
                                (htm
                                  (:rect
-                                  :x "0"
-                                  :y (format nil "~A" (* day (+ box-height-pct box-margin-pct)))
-                                  :width (format nil "~A" box-width-pct)
-                                  :height (format nil "~A" box-height-pct)
+                                  :x 0
+                                  :y (* day (+ box-width box-margin))
+                                  :width box-width
+                                  :height box-width
                                   :fill "#5c6ac4")))))
                          ((= week 52)
                           (loop for day from 0 below days-in-year
                                 do
                                   (htm
                                     (:rect
-                                     :x "0"
-                                     :y (format nil "~A" (* day (+ box-height-pct box-margin-pct)))
-                                     :width (format nil "~A" box-width-pct)
-                                     :height (format nil "~A" box-height-pct)
+                                     :x 0
+                                     :y (* day (+ box-width box-margin))
+                                     :width box-width
+                                     :height box-width
                                      :fill "#5c6ac4"))))
                          (t
                           (loop for day from 0 to 6
                                 do (decf days-in-year)
                                 (htm
                                   (:rect
-                                   :x "0"
-                                   :y (format nil "~A" (* day (+ box-height-pct box-margin-pct)))
-                                   :width (format nil "~A" box-width-pct)
-                                   :height (format nil "~A" box-height-pct)
-                                   :fill "#5c6ac4")))))))))))))))
+                                   :x 0
+                                   :y (* day (+ box-width box-margin))
+                                   :width box-width
+                                   :height box-width
+                                   :fill "#5c6ac4")))))))))))))))))

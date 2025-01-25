@@ -18,12 +18,13 @@
   
       (:div :class "w-full flex-grow h-64 border-4 border-red-500" 
           (components:contributions-chart 
-            :box-width 20
-            :box-margin 4 
-            :text-height 20 
-            :scale-factor 1.0))
+            :box-width 10
+            :box-margin 2 
+            :text-height 15 
+            :scale-factor 1.0 )))
 
         
+     (:div :class "flex justify-end items-center w-full border-4 border-emerald-500"
 
       (:pre :class "text-red-500" "    |\\_ /|   
    ( o  o )
