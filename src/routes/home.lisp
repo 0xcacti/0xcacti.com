@@ -16,13 +16,12 @@
 
      (:div :class "flex justify-center items-center w-full border-4 border-emerald-500"
   
-      (:div :class "w-full flex items-center justify-center h-64"
         (:div :class "max-w-full overflow-x-auto border-emerald-500 border-4"
           (components:contributions-chart 
             :box-width 10
             :box-margin 2 
             :text-height 15 
-            :scale-factor 1.0)))
+            :scale-factor 1.0))
 
 
       (:pre :class "text-red-500" "    |\\_ /|   
