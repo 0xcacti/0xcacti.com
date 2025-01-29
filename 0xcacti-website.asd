@@ -6,9 +6,9 @@
   :depends-on (:hunchentoot
                :cl-who
                :parenscript
-               :str)
-               ;;:dexador 
-               ;; :cl-json)   
+               :str
+               :drakma 
+               :cl-json)   
   :components 
   ((:module "src"
     :serial t

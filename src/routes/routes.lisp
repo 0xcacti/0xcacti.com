@@ -6,11 +6,11 @@
 (defun register-routes ()
   (loop for (uri . handler) in *route-handlers* do 
     (push 
-      (create-prefix-dispatcher uri handler)
-      *dispatch-table*)))
+      (ht:create-prefix-dispatcher uri handler)
+      ht:*dispatch-table*)))
 
 (defun setup-routes ()
-  (setf *dispatch-table* nil)
+  (setf ht:*dispatch-table* nil)
   (register-routes)
-  (format t "Routes registered: ~A~%" *dispatch-table*))
+  (format t "Routes registered: ~A~%" ht:*dispatch-table*))
 
