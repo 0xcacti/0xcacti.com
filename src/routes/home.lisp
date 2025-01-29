@@ -50,55 +50,33 @@
 
 
 (defun get-contributions (username token &key (year 2025))
-  (let* ((start-time "")
-         (end-time ""))
-    (cond 
-      ((= year 2025)
-          (setf start-time "2025-01-01T00:00:00Z")
-          (setf end-time "2025-12-31T23:59:59Z"))
-      ((= year 2024)
-          (setf start-time "2024-01-01T00:00:00Z")
-          (setf end-time "2024-12-31T23:59:59Z"))
-      ((= year 2023)
-          (setf start-time "2023-01-01T00:00:00Z")
-          (setf end-time "2023-12-31T23:59:59Z"))
-      ((= year 2022)
-          (setf start-time "2022-01-01T00:00:00Z")
-          (setf end-time "2022-12-31T23:59:59Z"))
-      (t 
-       (setf start-time "2025-01-01T00:00:00Z")
-       (setf end-time "2025-12-31T23:59:59Z")))
-
-    (let ((query "
-       query($username: String!, $from: DateTime, $to: DateTime) {
-         user(login: $username) {
-           contributionsCollection(from: $from, to: $to) {
-             contributionCalendar {
-               totalContributions
-               weeks {
-                 contributionDays {
-                   contributionCount
-                   date
-                 }
-               }
-             }
-           }
-         }
-      }"))
-      (dk:http-request "https://api.github.com/graphql"
-                :method :post
-                :content-type "application/json"
-                :additional-headers `(("Authorization" . ,(format nil "Bearer ~A" token)))
-                :content (cl-json:encode-json 
-                           '(:query query 
-                             :variables 
-                              (:username username
-                               :from start-time
-                               :to end-time)))))))
-
-
-
-
-
-
+  (let* ((start-time (format nil "~A-01-01T00:00:00Z" year))
+         (end-time (format nil "~A-12-31T23:59:59Z" year))
+         (query "query($username: String!, $from: DateTime, $to: DateTime) {
+                  user(login: $username) {
+                    contributionsCollection(from: $from, to: $to) {
+                      contributionCalendar {
+                        totalContributions
+                        weeks {
+                          contributionDays {
+                            contributionCount
+                            date
+                          }
+                        }
+                      }
+                    }
+                  }
+                }")
+         (payload (cl-json:encode-json-to-string  
+                   `(("query" . ,query)
+                     ("variables" . (("username" . ,username)
+                                   ("from" . ,start-time)
+                                   ("to" . ,end-time))))))
+         (response (dk:http-request "https://api.github.com/graphql"
+                    :method :post
+                    :content-type "application/json"
+                    :additional-headers `(("Authorization" . ,(format nil "Bearer ~A" token)))
+                    :content payload)))
+    (cl-json:decode-json-from-string 
+      (babel:octets-to-string response :encoding :utf-8))))
 

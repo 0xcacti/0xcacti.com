@@ -8,7 +8,8 @@
                :parenscript
                :str
                :drakma 
-               :cl-json)   
+               :cl-json
+               :babel)   
   :components 
   ((:module "src"
     :serial t

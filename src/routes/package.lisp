@@ -4,5 +4,6 @@
                     (:ht #:hunchentoot)
                     (:who #:cl-who)
                     (:json #:cl-json)
-                    (:dk #:drakma))
+                    (:dk #:drakma)
+                    (:babel #:babel))
   (:export #:setup-routes))
