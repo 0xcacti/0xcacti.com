@@ -43,12 +43,6 @@
     (cl-json:decode-json-from-string 
       (babel:octets-to-string response :encoding :utf-8))))
 
-(defun test() 
-  (config:make-config)
-  (get-contributions "0xcacti" 2024))
-  
-
-
 (defmacro contributions-chart (&key (year 2025) (box-width 10) (box-margin 2) (text-height 15) (scale-factor 1.0))
   `(with-html-output (*standard-output*)
      (let* ((height (* 722 ,scale-factor))
