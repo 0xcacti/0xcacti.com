@@ -25,8 +25,8 @@
 
        (htm
          (:svg 
-          ;; :width "722"
-          ;; :height "112"
+          :width "722"
+          :height "112"
           :viewBox (format nil "0 0 ~A ~A" height width)
           :preserveAspectRatio "xMidYMid meet"
           

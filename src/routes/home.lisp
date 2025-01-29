@@ -14,17 +14,28 @@
        "Languages")
       )
 
-     (:div :class "flex justify-center items-center w-full border-4 border-emerald-500"
-  
-        (:div :class "max-w-full overflow-x-auto border-emerald-500 border-4"
-          (components:contributions-chart 
-            :box-width 10
-            :box-margin 2 
-            :text-height 15 
-            :scale-factor 1.0))
+     (:div :class "flex justify-center items-center w-full h-[145px] border-4 rounded-lg border-gray-300 px-2"
+      (:div :class "flex flex-row items-end max-w-full overflow-x-scroll [scrollbar-gutter:stable] hover:overflow-x-scroll" 
+          (:div :class "w-fit"
+            (components:contributions-chart 
+              :box-width 10
+              :box-margin 2 
+              :text-height 15 
+              :scale-factor 1.0))
+          (:select :class "-ml-10 px-4 py-2 bg-gray-100 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            (:option :value "2025" "2025")
+            (:option :value "2024" "2024")
+            (:option :value "2023" "2023")
+            (:option :value "2022" "2022")
+            (:option :value "2021" "2021")))
+
+      (:pre :class "text-red-500 text-sm" "
 
 
-      (:pre :class "text-red-500" "    |\\_ /|   
+
+
+
+    |\\_ /|   
    ( o  o )
     > . <&#47;
     |    \\
