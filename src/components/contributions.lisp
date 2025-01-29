@@ -11,17 +11,54 @@
       ((and (zerop (mod year 4)) (or (not (mod year 100)) (mod year 400))) 366)
       (t 365)))
 
+(defun get-contributions (username year)
+  (let* ((token (config:get-github-token config:*config*))
+         (start-time (format nil "~A-01-01T00:00:00Z" year))
+         (end-time (format nil "~A-12-31T23:59:59Z" year))
+         (query "query($username: String!, $from: DateTime, $to: DateTime) {
+                  user(login: $username) {
+                    contributionsCollection(from: $from, to: $to) {
+                      contributionCalendar {
+                        totalContributions
+                        weeks {
+                          contributionDays {
+                            contributionCount
+                            date
+                          }
+                        }
+                      }
+                    }
+                  }
+                }")
+         (payload (cl-json:encode-json-to-string  
+                   `(("query" . ,query)
+                     ("variables" . (("username" . ,username)
+                                   ("from" . ,start-time)
+                                   ("to" . ,end-time))))))
+         (response (dk:http-request "https://api.github.com/graphql"
+                    :method :post
+                    :content-type "application/json"
+                    :additional-headers `(("Authorization" . ,(format nil "Bearer ~A" token)))
+                    :content payload)))
+    (cl-json:decode-json-from-string 
+      (babel:octets-to-string response :encoding :utf-8))))
 
-(defmacro contributions-chart (&key (box-width 10) (box-margin 2) (text-height 15) (scale-factor 1.0))
+(defun test() 
+  (config:make-config)
+  (get-contributions "0xcacti" 2024))
+  
+
+
+(defmacro contributions-chart (&key (year 2025) (box-width 10) (box-margin 2) (text-height 15) (scale-factor 1.0))
   `(with-html-output (*standard-output*)
-     (let* (
-            (height (* 722 ,scale-factor))
+     (let* ((height (* 722 ,scale-factor))
             (width (* 112 ,scale-factor))
             (box-width (* ,box-width ,scale-factor))
             (box-margin (* ,box-margin ,scale-factor))
             (text-height (* ,text-height ,scale-factor))
             (above-offset (* ,text-height 2))
-            (left-offset (+ (* ,box-width 2) 15)))
+            (left-offset (+ (* ,box-width 2) 15))
+            (contributions (get-contributions "0xcacti"  ,year)))
 
        (htm
          (:svg 

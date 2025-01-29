@@ -14,8 +14,14 @@
   ((:module "src"
     :serial t
     :components 
-    ((:module "components" 
+    ((:module "config" 
       :serial t
+      :components
+      ((:file "package")
+       (:file "config")))
+     (:module "components" 
+      :serial t
+      :depends-on ("config")
       :components
       ((:file "package")
        (:file "base")
