@@ -16,13 +16,21 @@
 
      (:div :class "flex justify-center items-center w-full h-[145px] border-4 rounded-lg border-gray-300 px-2"
       (:div :class "flex flex-row items-end max-w-full overflow-x-scroll [scrollbar-gutter:stable] hover:overflow-x-scroll" 
-          (:div :class "w-fit"
+          (:div 
+           :id "chart-container"
+           :class "w-fit"
             (components:contributions-chart 
               :box-width 10
               :box-margin 2 
               :text-height 15 
               :scale-factor 1.0))
-          (:select :class "-ml-10 px-4 py-2 bg-gray-100 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          (:select 
+            :class "-ml-10 px-4 py-2 bg-gray-100 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            :name "year"
+            :hx-get "/contributions"
+            :hx-target "#chart-container"
+            :hx-trigger "change"
+            :hx-include "this"
             (:option :value "2025" "2025")
             (:option :value "2024" "2024")
             (:option :value "2023" "2023")
@@ -49,3 +57,14 @@
          v")))))
 
 
+
+(defun contributions-handler ()
+  (setf (hunchentoot:content-type*) "text/html")
+  (who:with-html-output-to-string (*standard-output*)
+  (let ((year (parse-integer (or (ht:get-parameter "year") "2025"))))
+    (components:contributions-chart
+      :year year 
+      :box-width 10 
+      :box-margin 2 
+      :text-height 15 
+      :scale-factor 1.0))))

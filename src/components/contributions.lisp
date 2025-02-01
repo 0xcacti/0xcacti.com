@@ -79,7 +79,7 @@
   (let ((contributions (get-contributions "0xcacti" 2024)))
     (format t "~A~%" (filter-contributions contributions))))
 
-(defmacro contributions-chart (&key (year 2024) (box-width 10) (box-margin 2) (text-height 15) (scale-factor 1.0))
+(defmacro contributions-chart (&key (year 2025) (box-width 10) (box-margin 2) (text-height 15) (scale-factor 1.0))
   `(with-html-output (*standard-output*)
      (let* ((height (* 722 ,scale-factor))
             (width (* 112 ,scale-factor))
@@ -88,6 +88,10 @@
             (text-height (* ,text-height ,scale-factor))
             (above-offset (* ,text-height 2))
             (left-offset (+ (* ,box-width 2) 15))
+            (days-in-year (get-number-of-days-in-year ,year))
+            (days-left-in-year days-in-year)  
+            (first-date (encode-universal-time 0 0 0 1 1 ,year))
+            (first-day-in-year (get-first-day-of-year ,year))
             (contributions (get-contributions "0xcacti"  ,year))
             (filtered-data (filter-contributions contributions)))
 
@@ -116,9 +120,7 @@
           (htm
             (:g
              :transform (format nil "translate(~A, ~A)" left-offset (/ above-offset 2))
-             (let* ((first-date (encode-universal-time 0 0 0 1 1 2024))
-                    (first-day-in-year (get-first-day-of-year 2024))
-                    (last-month -1))
+             (let* ((last-month -1))
                (loop for week from 0 to 52
                      for date = (- (+ first-date (* week 7 24 60 60)) (* first-day-in-year 24 60 60))
                      for month = (nth-value 4 (decode-universal-time date))
@@ -141,8 +143,6 @@
           (htm
             (:g
              :transform (format nil "translate(~A, ~A)" left-offset above-offset)
-             (let* ((days-in-year (get-number-of-days-in-year 2024))
-                   (days-left-in-year days-in-year))
                (loop for week from 0 to 52 do
                      (htm
                        (:g
@@ -194,4 +194,4 @@
                                             (nth (- days-in-year days-left-in-year) filtered-data)
                                             :level))
 
-                                   )))))))))))))))))
+                                   ))))))))))))))))

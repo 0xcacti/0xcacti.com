@@ -1,7 +1,8 @@
 (in-package #:0xcacti-website.routes)
 
 (defvar *route-handlers*
-  `(("/" . home-handler)))
+  `(("/" . home-handler)
+    ("/contributions" . contributions-handler)))
 
 (defun register-routes ()
   (loop for (uri . handler) in *route-handlers* do 
