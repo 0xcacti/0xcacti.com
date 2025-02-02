@@ -116,7 +116,6 @@
                      :style (format nil "font-size: ~Apx;" ,text-height) 
                      (str (nth day '("Sun" "Mon" "Tue" "Wed" "Thu" "Fri" "Sat"))))))))
 
-          ;; Month labels - Using left-offset and above-offset/2
           (htm
             (:g
              :transform (format nil "translate(~A, ~A)" left-offset (/ above-offset 2))
@@ -139,7 +138,6 @@
                                 (str (nth (1- month) '("" "Feb" "Mar" "Apr" "May" "Jun" 
                                                      "Jul" "Aug" "Sep" "Oct" "Nov" "Dec"))))))))))
 
-          ;; Contribution boxes - Using left-offset and above-offset
           (htm
             (:g
              :transform (format nil "translate(~A, ~A)" left-offset above-offset)
@@ -158,7 +156,8 @@
                                   :y (* day (+ box-width box-margin))
                                   :width box-width
                                   :height box-width
-                                  :fill (assign-color 
+                                  :rx (/ box-width 4)  
+                                  :fill (assign-color
                                          (getf 
                                            (nth (- days-in-year days-left-in-year) filtered-data)
                                            :level))
@@ -175,7 +174,8 @@
                                      :y (* day (+ box-width box-margin))
                                      :width box-width
                                      :height box-width
-                                   :fill (assign-color 
+                                     :rx (/ box-width 4)  
+                                     :fill (assign-color 
                                           (getf 
                                             (nth index filtered-data)
                                             :level))
@@ -189,6 +189,7 @@
                                    :y (* day (+ box-width box-margin))
                                    :width box-width
                                    :height box-width
+                                   :rx (/ box-width 4)  
                                    :fill (assign-color 
                                           (getf 
                                             (nth (- days-in-year days-left-in-year) filtered-data)
