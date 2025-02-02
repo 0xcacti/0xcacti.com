@@ -8,8 +8,16 @@
       "Christian, software engineer, programming language nerd, ascii art fan")
       
      (:div :class "w-full flex-1 grid grid-cols-1 lg:grid-cols-2 gap-4" 
-      (:div :class "border-4 border-purple-500 p-4 flex justify-center min-h-full" 
-       "Recent Projcts")
+      (:div :class "border-4 border-purple-500 p-4 flex flex-col justify-center min-h-full" 
+       "Recent Projcts"
+       (:div 
+        :class "flex flex-col w-full h-full border-4 border-emerald-500"
+        (:div 
+         :class "w-full border-4 border-emerald-500 p-4"
+         "0xcacti.com - my personal website in common lisp + htmx")
+
+       
+       ))
       (:div :class "border-4 border-purple-500 p-4 flex justify-center min-h-full"
        "Languages")
       )
