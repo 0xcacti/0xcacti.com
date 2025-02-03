@@ -26,6 +26,7 @@
       ((:file "package")
        (:file "base")
        (:file "icons")
+       (:file "project")
        (:file "contributions")))
      (:module "routes" 
       :serial t

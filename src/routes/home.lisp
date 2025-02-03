@@ -18,14 +18,12 @@
                 (:div :class "hidden sm:block w-[1px] self-stretch bg-red-500 mx-2")
                 (:div :class "text-sm sm:text-base"
                       "My personal website in common lisp + htmx"))
+        (components:project 
+          :name "chaplet.nvim" 
+          :link "https://github.com/0xcacti/chaplet.nvim"
+          :language "lua"
+          :description "Pray the Rosary and other chaplets while you code")
 
-          (:div :class "flex flex-col sm:flex-row items-start sm:items-center gap-4 border-b border-gray-300 pb-4 sm:pb-6"
-                (:div :class "flex items-center gap-4"  
-                      (components:lua-logo :class "h-6 w-6 hover:text-red-500")
-                      (:a :href "https://github.com/0xcacti/chaplet.nvim" :class "hover:text-red-500" "chaplet.nvim"))
-                (:div :class "hidden sm:block w-[1px] self-stretch bg-red-500 mx-2")
-                (:div :class "text-sm sm:text-base"
-                      "Pray the Rosary and other chaplets while you code"))
 
           ))
 
