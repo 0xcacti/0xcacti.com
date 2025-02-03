@@ -1,6 +1,7 @@
-(defmacro language (&key thoughts)
+(in-package #:0xcacti-website.components)
+
+(defmacro go-ascii () 
   `(with-html-output (*standard-output*)
-     (:div :class "flex flex-col items-center justify-center w-full"
       (:pre :class "text-sky-300"
        "      ´.-::::::-.´" (:br)
        "  .:-::::::::::::::-:." (:br)
@@ -14,13 +15,34 @@
        "   ´::::::::::::::::´" (:br)
        "    .::::::::::::::." (:br)
        (:span :class "text-orange-200" "      oO") ":::::::" (:span :class "text-orange-200" "Oo"))
+  ))
 
-      (:div :class "pt-6"
-       "Golang was my first love.  In university, I briefly looked at Java as most students do, but Golang was the first 
-       real language that I learned and used on my own. It's so simple, so easy.  I spent hours and hours writing crypto 
-       trading bots in it, and the period during which I was writing Golang was the time I developed the most as a programmer.
-       To this day, I maintain Golang is a great first language to learn because it makes you value simplicity. Of course, it's 
-       easy to feel fomo writing Golang because it lacks the sex appeal of other languages, but that's okay.  It's a great language."
-       ))))
+(defmacro rust-ascii ()
+  `(with-html-output (*standard-output*)
+     (:pre :class "text-red-500"
+"                 R RR RR"(:br)
+"              RRRRRRRRRR R"(:br)
+"            R RRRRRRRRRRRRRRR"(:br)
+"            RRRRRRRRRRRRRRRRR       R"(:br)
+" R RR    RRRRRRRRRRRRRRRRRRRRRR    RR"(:br)
+"rR RRR    RRRRRRRRRRRRRRRRRRRRR   RRR R"(:br)
+"RRR RR  RRRRRRRRRRRRRRRRRRRRRRRRR RRRRR"(:br)
+" RRRRR  RRRRRRRRRRRRRRRRRRRRRRRR  RRRR"(:br)
+"  RRR RRRRRRRRRRRRRRRRRRRRRRRRRRRR RR"(:br)
+"    R  RRRRRRRRRR{1}=  {0}RR{1} = {0}RRRRRRRRRRR"(:br)
+"     RRRRRRRRRRRr{1}=  {0}RR{1} = {0}RRRRRRRRRR"(:br)
+"      RRRRRRRRRRR   RR   RRRRRRRRRR"(:br)
+"     RR==RRRRRRRRRRRRRRRRRRRRRR===RR"(:br)
+"     RR = .==RRRRRRR  RRRRRR==  = Rr"(:br)
+"      RR =     ===========     = RR"(:br)
+"       RR                        R"(:br)
+"        R                       R"(:br)
+"         R"(:br))))
+
+(defmacro language (&key thoughts)
+  `(with-html-output (*standard-output*)
+     (:div :class "flex flex-col items-center justify-center w-full"
+      ,(rust-ascii)
+      (:div :class "pt-6" ,thoughts))))
 
 
