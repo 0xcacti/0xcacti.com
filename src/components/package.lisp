@@ -10,6 +10,7 @@
            #:lua-logo
            #:x-logo
            #:github-logo
+           #:language
            #:project
            #:contributions-chart
            #:get-first-day-of-year    

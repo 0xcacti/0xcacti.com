@@ -10,26 +10,53 @@
        (:div :class "mb-8 text-2xl font-light text-gray-600"
           "Recent Projects")
        (:div 
-       :class "grid gap-4 sm:gap-6"
-          (:div :class "flex flex-col sm:flex-row items-start sm:items-center gap-4 border-b border-gray-300 pb-4 sm:pb-6"
-                (:div :class "flex items-center gap-4"  
-                      (components:cl-logo :class "h-6 w-6 hover:text-red-500")
-                      (:a :href "https://github.com/0xcacti/0xcacti.com" :class "hover:text-red-500" "0xcacti.com"))
-                (:div :class "hidden sm:block w-[1px] self-stretch bg-red-500 mx-2")
-                (:div :class "text-sm sm:text-base"
-                      "My personal website in common lisp + htmx"))
-        (components:project 
-          :name "chaplet.nvim" 
-          :link "https://github.com/0xcacti/chaplet.nvim"
-          :language "lua"
-          :description "Pray the Rosary and other chaplets while you code")
+        :class "grid gap-4 sm:gap-6"
+          (components:project
+            :name "0xcacti.com"
+            :link "https://github.com/0xcacti/0xcacti.com"
+            :language "cl"
+            :description "My personal website in common lisp + htmx")
 
+          (components:project 
+            :name "chaplet.nvim" 
+            :link "https://github.com/0xcacti/chaplet.nvim"
+            :language "lua"
+            :description "Pray the Rosary and other chaplets while you code")
 
-          ))
+          (components:project 
+            :name "ring" 
+            :link "https://github.com/0xcacti/ring"
+            :language "rust"
+            :description "An implementation of ping in rust")
 
-      (:div :class "border-4 border-purple-500 p-4 flex justify-center min-h-full"
-       "Languages")
-      )
+          (components:project 
+            :name "interpreter" 
+            :link "https://github.com/0xcacti/interpreter"
+            :language "rust"
+            :description "An implementation of Thorsten Ball's Monkey language in rust")
+
+          (components:project
+            :name "optimized tictactoe"
+            :link "https://github.com/0xcacti/tictactoe"
+            :language "solidity"
+            :description "An optimized version of tictactoe in solidity")
+        ))
+
+        (:div :class "flex flex-col justify-start min-h-full rounded-lg p-2" 
+         (:div :class "flex justify-start mb-8 text-2xl font-light text-gray-600"
+            "Languages"
+          (:div :class "flex flex-grow justify-end text-sm"
+           (:button 
+            :class "px-2 py-1 rounded border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+            :name "language"
+            :hx-get "/languages" 
+            :hx-target "#languages"
+            :hx-trigger "click"
+            "Switch")))
+
+         (components:language)
+
+         ))
 
      (:div :class "flex justify-center items-center w-full h-[145px] border-4 rounded-lg border-gray-300 px-2"
       (:div :class "flex flex-row items-end max-w-full overflow-x-scroll [scrollbar-gutter:stable] hover:overflow-x-scroll pb-2" 
