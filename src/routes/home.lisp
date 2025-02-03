@@ -8,16 +8,33 @@
       "Christian, software engineer, programming language nerd, ascii art fan")
       
      (:div :class "w-full flex-1 grid grid-cols-1 lg:grid-cols-2 gap-4" 
-      (:div :class "border-4 border-purple-500 p-4 flex flex-col justify-center min-h-full" 
-       "Recent Projcts"
-       (:div 
-        :class "flex flex-col w-full h-full border-4 border-emerald-500"
-        (:div 
-         :class "w-full border-4 border-emerald-500 p-4"
-         "0xcacti.com - my personal website in common lisp + htmx")
 
-       
-       ))
+      (:div :class "flex flex-col justify-center min-h-full rounded-lg border-4 border-gray-300" 
+       (:div :class "pt-2 pl-2"
+          "Recent Projects")
+
+       (:div 
+       :class "flex flex-col w-full h-full"
+       (:div 
+        :class "w-full rounded-lg border-t-4 border-b-4 border-gray-300 p-4"
+        (:div :class "flex flex-col sm:flex-row items-start sm:items-center gap-4"
+              (:div :class "flex items-center gap-4"  
+                    (components:cl-logo :class "h-6 w-6 hover:text-red-500")
+                    (:a :href "https://github.com/0xcacti/0xcacti.com" :class "hover:text-red-500" "0xcacti.com"))
+              (:div :class "hidden sm:block w-0.5 self-stretch bg-gray-300 mx-2")
+              (:div :class "text-sm sm:text-base"
+                    "my personal website in common lisp + htmx")))
+       (:div 
+        :class "w-full rounded-lg border-t-4 border-b-4 border-gray-300 p-4"
+        (:div :class "flex flex-col sm:flex-row items-start sm:items-center gap-4"
+              (:div :class "flex items-center gap-4"  
+                    (components:cl-logo :class "h-6 w-6 hover:text-red-500")
+                    (:a :href "https://github.com/0xcacti/0xcacti.com" :class "hover:text-red-500" "0xcacti.com"))
+              (:div :class "hidden sm:block w-0.5 self-stretch bg-gray-300 mx-2")
+              (:div :class "text-sm sm:text-base"
+                    "my personal website in common lisp + htmx")))
+        ))
+
       (:div :class "border-4 border-purple-500 p-4 flex justify-center min-h-full"
        "Languages")
       )
