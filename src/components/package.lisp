@@ -7,6 +7,7 @@
                     (:babel #:babel))
   (:export #:with-base-page
            #:cl-logo
+           #:lua-logo
            #:x-logo
            #:github-logo
            #:contributions-chart

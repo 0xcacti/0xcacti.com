@@ -4,36 +4,30 @@
   (setf (ht:content-type*) "text/html")
   (components:with-base-page (:title "0xcacti")
     (:div :class "container mx-auto flex flex-col flex-1 justify-between items-center"
-     (:div :class "text-xl w-full flex justify-center items-center text-center"
-      "Christian, software engineer, programming language nerd, ascii art fan")
       
-     (:div :class "w-full flex-1 grid grid-cols-1 lg:grid-cols-2 gap-4" 
-
-      (:div :class "flex flex-col justify-center min-h-full rounded-lg border-4 border-gray-300" 
-       (:div :class "pt-2 pl-2"
+     (:div :class "w-full pt-6 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-4" 
+      (:div :class "flex flex-col justify-start min-h-full rounded-lg p-2" 
+       (:div :class "mb-8 text-2xl font-light text-gray-600"
           "Recent Projects")
+       (:div 
+       :class "grid gap-4 sm:gap-6"
+          (:div :class "flex flex-col sm:flex-row items-start sm:items-center gap-4 border-b border-gray-300 pb-4 sm:pb-6"
+                (:div :class "flex items-center gap-4"  
+                      (components:cl-logo :class "h-6 w-6 hover:text-red-500")
+                      (:a :href "https://github.com/0xcacti/0xcacti.com" :class "hover:text-red-500" "0xcacti.com"))
+                (:div :class "hidden sm:block w-[1px] self-stretch bg-red-500 mx-2")
+                (:div :class "text-sm sm:text-base"
+                      "My personal website in common lisp + htmx"))
 
-       (:div 
-       :class "flex flex-col w-full h-full"
-       (:div 
-        :class "w-full rounded-lg border-t-4 border-b-4 border-gray-300 p-4"
-        (:div :class "flex flex-col sm:flex-row items-start sm:items-center gap-4"
-              (:div :class "flex items-center gap-4"  
-                    (components:cl-logo :class "h-6 w-6 hover:text-red-500")
-                    (:a :href "https://github.com/0xcacti/0xcacti.com" :class "hover:text-red-500" "0xcacti.com"))
-              (:div :class "hidden sm:block w-0.5 self-stretch bg-gray-300 mx-2")
-              (:div :class "text-sm sm:text-base"
-                    "my personal website in common lisp + htmx")))
-       (:div 
-        :class "w-full rounded-lg border-t-4 border-b-4 border-gray-300 p-4"
-        (:div :class "flex flex-col sm:flex-row items-start sm:items-center gap-4"
-              (:div :class "flex items-center gap-4"  
-                    (components:cl-logo :class "h-6 w-6 hover:text-red-500")
-                    (:a :href "https://github.com/0xcacti/0xcacti.com" :class "hover:text-red-500" "0xcacti.com"))
-              (:div :class "hidden sm:block w-0.5 self-stretch bg-gray-300 mx-2")
-              (:div :class "text-sm sm:text-base"
-                    "my personal website in common lisp + htmx")))
-        ))
+          (:div :class "flex flex-col sm:flex-row items-start sm:items-center gap-4 border-b border-gray-300 pb-4 sm:pb-6"
+                (:div :class "flex items-center gap-4"  
+                      (components:lua-logo :class "h-6 w-6 hover:text-red-500")
+                      (:a :href "https://github.com/0xcacti/chaplet.nvim" :class "hover:text-red-500" "chaplet.nvim"))
+                (:div :class "hidden sm:block w-[1px] self-stretch bg-red-500 mx-2")
+                (:div :class "text-sm sm:text-base"
+                      "Pray the Rosary and other chaplets while you code"))
+
+          ))
 
       (:div :class "border-4 border-purple-500 p-4 flex justify-center min-h-full"
        "Languages")
