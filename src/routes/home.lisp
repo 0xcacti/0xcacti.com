@@ -3,7 +3,7 @@
 (defun home-handler ()
   (setf (ht:content-type*) "text/html")
   (components:with-base-page (:title "0xcacti")
-    (:div :class "container mx-auto flex flex-col flex-1 justify-between items-center gap-4"
+    (:div :class "container mx-auto flex flex-col justify-between items-center gap-4 p-2"
       
      (:div :class "w-full pt-6 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-4" 
       (:div :class "flex flex-col justify-start min-h-full rounded-lg p-4 border border-gray-300" 
@@ -53,12 +53,9 @@
             :hx-target "#languages"
             :hx-trigger "click"
             "Switch")))
-
-         (components:language :thoughts "Golang was my first love.  In university, I briefly looked at Java as most students do, but Golang was the first 
-       real language that I learned and used on my own. It's so simple, so easy.  I spent hours and hours writing crypto 
-       trading bots in it, and the period during which I was writing Golang was the time I developed the most as a programmer.
-       To this day, I maintain Golang is a great first language to learn because it makes you value simplicity. Of course, it's 
-       easy to feel fomo writing Golang because it lacks the sex appeal of other languages, but that's okay.  It's a great language.")
+         (:div 
+          :id "languages"
+          (components:language :language "go"))
 
          ))
 
@@ -116,3 +113,10 @@
       :box-margin 2 
       :text-height 15 
       :scale-factor 1.0))))
+
+(defun languages-handler ()
+  (setf (hunchentoot:content-type*) "text/html")
+  (who:with-html-output-to-string (*standard-output*)
+    (if (zerop (random 2))
+        (components:language :language "go")
+        (components:language :language "rust"))))

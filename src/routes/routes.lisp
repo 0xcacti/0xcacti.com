@@ -2,7 +2,8 @@
 
 (defvar *route-handlers*
   `(("/" . home-handler)
-    ("/contributions" . contributions-handler)))
+    ("/contributions" . contributions-handler)
+    ("/languages" . languages-handler)))
 
 (defun register-routes ()
   (loop for (uri . handler) in *route-handlers* do 
