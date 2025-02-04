@@ -3,10 +3,10 @@
 (defun home-handler ()
   (setf (ht:content-type*) "text/html")
   (components:with-base-page (:title "0xcacti")
-    (:div :class "container mx-auto flex flex-col flex-1 justify-between items-center"
+    (:div :class "container mx-auto flex flex-col flex-1 justify-between items-center gap-4"
       
      (:div :class "w-full pt-6 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-4" 
-      (:div :class "flex flex-col justify-start min-h-full rounded-lg p-2" 
+      (:div :class "flex flex-col justify-start min-h-full rounded-lg p-4 border border-gray-300" 
        (:div :class "mb-8 text-2xl font-light text-gray-600"
           "Recent Projects")
        (:div 
@@ -42,7 +42,7 @@
             :description "An optimized version of tictactoe in solidity")
         ))
 
-        (:div :class "flex flex-col justify-start min-h-full rounded-lg p-2" 
+        (:div :class "flex flex-col justify-start min-h-full rounded-lg p-4 border border-gray-300" 
          (:div :class "flex justify-start mb-8 text-2xl font-light text-gray-600"
             "Languages"
           (:div :class "flex flex-grow justify-end text-sm"
@@ -62,7 +62,7 @@
 
          ))
 
-     (:div :class "flex justify-center items-center w-full h-[145px] border-4 rounded-lg border-gray-300 px-2"
+     (:div :class "flex justify-center items-center w-full h-[145px] border rounded-lg border-gray-300 px-2"
       (:div :class "flex flex-row items-end max-w-full overflow-x-scroll [scrollbar-gutter:stable] hover:overflow-x-scroll pb-2" 
           (:div 
            :id "chart-container"
