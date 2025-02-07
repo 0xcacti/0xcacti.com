@@ -6,7 +6,7 @@
     (:div :class "container mx-auto flex flex-col justify-between items-center gap-4 p-2"
       
      (:div :class "w-full pt-6 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-4" 
-      (:div :class "flex flex-col justify-start min-h-full rounded-lg p-4 border border-gray-300" 
+      (:div :class "flex flex-col justify-start rounded-lg p-4 border border-gray-300 overflow-y-auto" 
        (:div :class "mb-8 text-2xl font-light text-gray-600"
           "Recent Projects")
        (:div 
@@ -42,8 +42,8 @@
             :description "An optimized version of tictactoe in solidity")
         ))
 
-        (:div :class "flex flex-col justify-start min-h-full rounded-lg p-4 border border-gray-300" 
-         (:div :class "flex justify-start mb-8 text-2xl font-light text-gray-600"
+        (:div :class "flex flex-col justify-start rounded-lg p-4 border border-gray-300 text-xs h-[535px]" 
+         (:div :class "flex justify-start text-2xl font-light text-gray-600"
             "Languages"
           (:div :class "flex flex-grow justify-end text-sm"
            (:button 
@@ -53,8 +53,7 @@
             :hx-target "#languages"
             :hx-trigger "click"
             "Switch")))
-         (:div 
-          :id "languages"
+        (:div :id "languages" :class "flex-1 min-h-0 flex flex-col"
           (components:language :language "go"))
 
          ))

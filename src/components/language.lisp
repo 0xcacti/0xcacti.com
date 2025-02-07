@@ -75,14 +75,20 @@
        trading bots in it, and the period during which I was writing Golang was the time I developed the most as a programmer.
        To this day, I maintain Golang is a great first language to learn because it makes you value simplicity. Of course, it's 
        easy to feel fomo writing Golang because it lacks the sex appeal of other languages, but that's okay.  It's a great language.")
-     ((string= ,language "rust") "Rust, man what do we say about rust")
+     ((string= ,language "rust") "Rust ... what do I say about rust.  I had a great time writing rust in the beginning because it let me feel like 
+                                 a college kid pretending to be a tortured intellectual to impress a girl. But then I remembered how bad that sucks. 
+                                 In all seriousness, Rust is great. I think everyone should learn it to enjoy it's amazing type system for a year. 
+                                 Maybe you will love it, maybe you will realize it's not for you. ")
      (t (error "Language not supported"))))
 
 
 (defmacro language (&key language)
   `(with-html-output (*standard-output*)
-     (:div :class "flex flex-col items-center justify-center w-full"
-      ,(ascii-switch :language language)
-      (:div :class "pt-6" ,(thoughts-switch :language language)))))
+     (:div :class "flex-1 flex flex-col p-2"
+       (:div :class "flex-1 flex items-center justify-center"
+         ,(ascii-switch :language language))
 
+       ;; Ensuring this stays at the bottom
+       (:div :class "mt-auto flex-shrink-0"
+         ,(thoughts-switch :language language)))))
 
