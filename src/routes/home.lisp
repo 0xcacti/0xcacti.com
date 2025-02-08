@@ -45,7 +45,7 @@
         (:div :class "flex flex-col justify-start rounded-lg p-4 border border-gray-300 text-xs h-[535px]" 
          (:div :class "flex justify-start text-2xl font-light text-black"
             "Languages"
-          (:div :class "flex flex-grow justify-end text-sm gap-1"
+          (:div :class "flex flex-grow justify-end  gap-1"
            (:button 
             :class "px-2 py-1 rounded border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 group"
             :name "language"
