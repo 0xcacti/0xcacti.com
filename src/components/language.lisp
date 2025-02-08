@@ -7,7 +7,7 @@
 "             ,************,                 "(:br)
 "         ****              ****  "(:br)
 "        *"(:span :class "text-blue-300" "@@")"    "(:span :class "text-black" ",_,    ,_,")(:span :class "text-blue-300" "    @@")"*         "(:br)
-"        **     "(:span :class "text-black" "|<|+--+|<|")"     **  "(:br)
+"        **     "(:span :class "text-black" "|o|+--+|o|")"     **  "(:br)
 "         %     "(:span :class "text-black" "|_|    |_|")"      %  "(:br)
 "        :*       "(:span :style "color: #d3b287;" "*")" "(:span :class "text-black" "@@")" "(:span :style "color: #d3b287;" "*")"        #  "(:br)
 "        -*      "(:span :style "color: #d3b287;" "********")"       *  "(:br)
