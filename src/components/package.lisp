@@ -6,6 +6,8 @@
                     (:dk #:drakma)
                     (:babel #:babel))
   (:export #:with-base-page
+           #:arrow-right
+           #:arrow-left
            #:cl-logo
            #:lua-logo
            #:x-logo

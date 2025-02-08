@@ -112,7 +112,7 @@
                     (:text
                      :x 0
                      :y (write-to-string (- (* (1+ day) (+ box-width box-margin)) 2))
-                     :fill "#5c6ac4"
+                     :fill "#000000"
                      :style (format nil "font-size: ~Apx;" ,text-height) 
                      (str (nth day '("Sun" "Mon" "Tue" "Wed" "Thu" "Fri" "Sat"))))))))
 
@@ -131,7 +131,7 @@
                            (:text
                             :x (write-to-string (* week (+ box-width box-margin)))
                             :y 0
-                            :fill "#5c6ac4"
+                            :fill "#000000"
                             :style (format nil "font-size: ~Apx;" ,text-height) 
                             (if (= week 0)
                                 (str "Jan")

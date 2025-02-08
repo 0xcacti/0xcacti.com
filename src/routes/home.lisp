@@ -3,11 +3,11 @@
 (defun home-handler ()
   (setf (ht:content-type*) "text/html")
   (components:with-base-page (:title "0xcacti")
-    (:div :class "container mx-auto flex flex-col justify-between items-center gap-4 p-2"
+    (:div :class "container mx-auto flex flex-col justify-between items-center gap-3 p-2"
       
-     (:div :class "w-full pt-6 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-4" 
+     (:div :class "w-full pt-3 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-3" 
       (:div :class "flex flex-col justify-start rounded-lg p-4 border border-gray-300 overflow-y-auto" 
-       (:div :class "mb-8 text-2xl font-light text-gray-600"
+       (:div :class "mb-8 text-2xl font-light text-black"
           "Recent Projects")
        (:div 
         :class "grid gap-4 sm:gap-6"
@@ -43,22 +43,36 @@
         ))
 
         (:div :class "flex flex-col justify-start rounded-lg p-4 border border-gray-300 text-xs h-[535px]" 
-         (:div :class "flex justify-start text-2xl font-light text-gray-600"
+         (:div :class "flex justify-start text-2xl font-light text-black"
             "Languages"
-          (:div :class "flex flex-grow justify-end text-sm"
+          (:div :class "flex flex-grow justify-end text-sm gap-1"
            (:button 
-            :class "px-2 py-1 rounded border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500"
+            :class "px-2 py-1 rounded border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 group"
             :name "language"
-            :hx-get "/languages" 
+            :hx-get "/languages?direction=prev" 
             :hx-target "#languages"
             :hx-trigger "click"
-            "Switch")))
+            :onclick "this.blur()"
+
+            (components:arrow-left :class "h-6 w-6 group-hover:text-red-500")
+            )
+           (:button 
+            :class "px-2 py-1 rounded border border-gray-300 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 group"
+            :name "language"
+            :hx-get "/languages?direction=next" 
+            :hx-target "#languages"
+            :hx-trigger "click"
+            :onclick "this.blur()"
+
+            (components:arrow-right :class "h-6 w-6 group-hover:text-red-500")
+            )
+           ))
         (:div :id "languages" :class "flex-1 min-h-0 flex flex-col"
           (components:language :language "go"))
 
          ))
 
-     (:div :class "flex justify-center items-center w-full h-[145px] border rounded-lg border-gray-300 px-2"
+     (:div :class "flex justify-center items-center w-full h-[150px] border rounded-lg border-gray-300 px-2"
       (:div :class "flex flex-row items-end max-w-full overflow-x-scroll [scrollbar-gutter:stable] hover:overflow-x-scroll pb-2" 
           (:div 
            :id "chart-container"
@@ -76,6 +90,7 @@
             :hx-target "#chart-container"
             :hx-trigger "change"
             :hx-include "this"
+            :onchange "this.blur()"
             (:option :value "2025" "2025")
             (:option :value "2024" "2024")
             (:option :value "2023" "2023")
@@ -113,9 +128,34 @@
       :text-height 15 
       :scale-factor 1.0))))
 
+
+(defun get-session-index ()
+  (or (hunchentoot:session-value 'language-index) 0))
+
+(defun set-session-index (index)
+  (setf (hunchentoot:session-value 'language-index) index))
+
+(defparameter *languages* #("go" "rust" "lua" "cl" "solidity"))
+
 (defun languages-handler ()
   (setf (hunchentoot:content-type*) "text/html")
-  (who:with-html-output-to-string (*standard-output*)
-    (if (zerop (random 2))
-        (components:language :language "go")
-        (components:language :language "rust"))))
+  (let* ((direction (hunchentoot:get-parameter "direction"))
+         (current (get-session-index))
+         (len (length *languages*))
+         (next-index (mod (if (string= direction "prev")
+                             (1- current)
+                             (1+ current))
+                         len)))
+    (set-session-index next-index)
+    (who:with-html-output-to-string (*standard-output*)
+    (cond ((string= (aref *languages* next-index) "go") 
+             (components:language :language "go"))
+          ((string= (aref *languages* next-index) "rust")
+             (components:language :language "rust"))
+          ((string= (aref *languages* next-index) "lua")
+             (components:language :language "lua"))
+          ((string= (aref *languages* next-index) "cl")
+             (components:language :language "cl"))
+          ((string= (aref *languages* next-index) "solidity")
+             (components:language :language "solidity"))))))
+

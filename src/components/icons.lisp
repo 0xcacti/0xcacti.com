@@ -54,3 +54,28 @@
        (:path :fill "currentColor"
         :d "M4.409 6.608L7.981.255l3.572 6.353zM8.411 0l3.569 6.348L15.552 0zm4.036 17.392l3.572 6.354l3.575-6.354zm-.608-10.284h-7.43l3.715 6.605zm.428-.25h7.428L15.982.255zM15.589 24l-3.569-6.349L8.448 24zm-3.856-6.858H4.306l3.712 6.603zm.428-.25h7.433l-3.718-6.605z")))))
 
+(defmacro arrow-right (&key (class "h-6 w-6"))
+  `(with-html-output (*standard-output*)
+     (:svg :xmlns "http://www.w3.org/2000/svg"
+      :viewbox "0 0 24 24"
+      :class ,class
+      (:path 
+        :fill "none"
+        :stroke "currentColor"
+        :stroke-linecap "round"
+        :stroke-linejoin "round"
+        :stroke-width "1.5"
+        :d "M4 12h2.5M20 12l-6-6m6 6l-6 6m6-6H9.5"))))
+
+(defmacro arrow-left (&key (class "h-6 w-6"))
+  `(with-html-output (*standard-output*)
+     (:svg :xmlns "http://www.w3.org/2000/svg"
+      :viewbox "0 0 24 24"
+      :class ,class
+      (:path 
+        :fill "none"
+        :stroke "currentColor"
+        :stroke-linecap "round"
+        :stroke-linejoin "round"
+        :stroke-width "1.5"
+        :d "m4 12l6-6m-6 6l6 6m-6-6h10.5m5.5 0h-2.5"))))
