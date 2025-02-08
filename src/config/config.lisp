@@ -3,7 +3,13 @@
 (defclass config ()
   ((github-token :initarg :github-token 
                  :reader get-github-token
-                 :type string)))
+                 :type string)
+   (db-path :initarg :db-path 
+            :reader get-db-path 
+            :type string)
+   (db-schema :initarg :db-schema 
+              :reader get-db-schema-path
+              :type string)))
 
 (defun load-env-file (&optional (path ".env"))
   (with-open-file (stream path :if-does-not-exist nil)
@@ -21,6 +27,11 @@
   (load-env-file)
   (make-instance 'config
                  :github-token (or (uiop:getenv "GITHUB_TOKEN")
-                                   (error "GITHUB_TOKEN environment variable not set"))))
+                                   (error "GITHUB_TOKEN environment variable not set"))
+                 :db-path (or (uiop:getenv "DB_PATH")
+                              (error "DB_PATH environment variable not set"))
+                 :db-schema (or (uiop:getenv "DB_SCHEMA")
+                                (error "DB_SCHEMA environment variable not set"))))
+
 
 (defparameter *config* (make-config))

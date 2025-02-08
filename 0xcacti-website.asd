@@ -9,7 +9,8 @@
                :str
                :drakma 
                :cl-json
-               :babel)   
+               :babel
+               :sqlite)   
   :components 
   ((:module "src"
     :serial t
@@ -19,6 +20,19 @@
       :components
       ((:file "package")
        (:file "config")))
+     (:module "services"
+      :serial t
+      :depends-on ("config")
+      :components
+      ((:file "package")
+       (:file "github")))
+     (:module "db" 
+      :serial t 
+      :depends-on ("config")
+      :components 
+      ((:file "package")
+       (:file "db")))
+
      (:module "components" 
       :serial t
       :depends-on ("config")

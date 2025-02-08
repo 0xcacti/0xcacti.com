@@ -5,55 +5,10 @@
          (day-index (nth-value 6 (decode-universal-time date))))
     (mod (+ day-index 1) 7)))
 
-
 (defun get-number-of-days-in-year (year)
   (cond 
       ((and (zerop (mod year 4)) (or (not (mod year 100)) (mod year 400))) 366)
       (t 365)))
-
-(defun log-debug (format-string &rest args)
-  (format t "~%DEBUG >>> ~A~%" (apply #'format nil format-string args))
-  (force-output))
-
-
-(defun get-contributions (username year)
-  (let* ((token (config:get-github-token config:*config*))
-         (start-time (format nil "~A-01-01T00:00:00Z" year))
-         (end-time (format nil "~A-12-31T23:59:59Z" year))
-         (query "query($username: String!, $from: DateTime, $to: DateTime) {
-                  user(login: $username) {
-                    contributionsCollection(from: $from, to: $to) {
-                      contributionCalendar {
-                        totalContributions
-                        weeks {
-                          contributionDays {
-                            contributionCount
-                            date
-                          }
-                        }
-                      }
-                    }
-                  }
-                }")
-         (payload (cl-json:encode-json-to-string  
-                   `(("query" . ,query)
-                     ("variables" . (("username" . ,username)
-                                   ("from" . ,start-time)
-                                   ("to" . ,end-time))))))
-         (response (dk:http-request "https://api.github.com/graphql"
-                    :method :post
-                    :content-type "application/json"
-                    :additional-headers `(("Authorization" . ,(format nil "Bearer ~A" token)))
-                    :content payload)))
-    (cl-json:decode-json-from-string 
-      (babel:octets-to-string response :encoding :utf-8))))
-
-(defun assign-level (c-count)
-  (cond ((= c-count 0) 0)
-        ((<= c-count 3) 1) 
-        ((<= c-count 6) 2)
-        ((<= c-count 9) 3)
-        (t 4)))
 
 (defun assign-color (level) 
   (cond ((= level 0) "#ebedf0")
@@ -61,23 +16,6 @@
         ((= level 2) "#40c463")
         ((= level 3) "#30a14e")
         ((= level 4) "#216e39")))
-
-(defun filter-contributions (contributions) 
-  (let* ((data (cdr (assoc :data contributions)))
-         (user (cdr (assoc :user data)))
-         (contrib-collection (cdr (assoc :CONTRIBUTIONS-COLLECTION user)))
-         (contrib-cal (cdr (assoc :CONTRIBUTION-CALENDAR contrib-collection)))
-         (weeks (cdr (assoc :WEEKS contrib-cal))))
-  (loop for week in weeks append
-      (loop for day in (cdr (assoc :CONTRIBUTION-DAYS week)) collect
-            (list 
-              :date (cdr (assoc :DATE day))
-              :count (cdr (assoc :CONTRIBUTION-COUNT day))
-              :level (assign-level (cdr (assoc :CONTRIBUTION-COUNT day))))))))
-
-(defun test () 
-  (let ((contributions (get-contributions "0xcacti" 2024)))
-    (format t "~A~%" (filter-contributions contributions))))
 
 (defmacro contributions-chart (&key (year 2025) (box-width 10) (box-margin 2) (text-height 15) (scale-factor 1.0))
   `(with-html-output (*standard-output*)
@@ -92,8 +30,7 @@
             (days-left-in-year days-in-year)  
             (first-date (encode-universal-time 0 0 0 1 1 ,year))
             (first-day-in-year (get-first-day-of-year ,year))
-            (contributions (get-contributions "0xcacti"  ,year))
-            (filtered-data (filter-contributions contributions)))
+            (filtered-data (services:get-filtered-contributions "0xcacti" ,year)))
 
        (htm
          (:svg 

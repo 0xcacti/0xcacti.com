@@ -2,9 +2,7 @@
   (:use #:cl 
         #:cl-who)
   (:local-nicknames (:config #:0xcacti-website.config)
-                    (:json #:cl-json)
-                    (:dk #:drakma)
-                    (:babel #:babel))
+                    (:services #:0xcacti-website.services))
   (:export #:with-base-page
            #:arrow-right
            #:arrow-left
