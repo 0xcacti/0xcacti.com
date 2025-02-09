@@ -16,7 +16,6 @@ So I decided to re-write it using Common Lisp using HTMX, and boom, this weird p
 ### TODO 
 
 - [ ] Add sqllite cacheing
-- [ ] Cleanup anything 
-- [ ] Vendor in tailwind
+- [x] Cleanup anything 
 - [x] Add a favicon
 - [ ] Host

@@ -14,5 +14,7 @@
 (defun setup-routes ()
   (setf ht:*dispatch-table* nil)
   (register-routes)
-  (format t "Routes registered: ~A~%" ht:*dispatch-table*))
+  (format t "~&Routes registered successfully.~%"))
+
+
 
