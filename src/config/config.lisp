@@ -20,7 +20,7 @@
                      (not (char= (char line 0) #\#)))
             do (let* ((parts (str:split "=" line))
                      (key (string-trim " " (first parts)))
-                     (value (string-trim " " (second parts))))
+                     (value (string-trim " \"" (second parts))))
                  (setf (uiop:getenv key) value))))))
 
 (defun make-config ()

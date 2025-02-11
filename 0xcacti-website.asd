@@ -32,7 +32,6 @@
       :components 
       ((:file "package")
        (:file "db")))
-
      (:module "components" 
       :serial t
       :depends-on ("config")
