@@ -117,28 +117,57 @@
 
 
 (defun contributions-handler ()
-  (setf (hunchentoot:content-type*) "text/html")
+  (case (ht:request-method*)
+    (:GET (get-contributions))
+    (:POST (update-contributions (ht:get-parameter "year")))
+    (otherwise (progn 
+                 (setf (ht:return-code*) 405)
+                 "{\"error\": \"Method Not Allowed\"}"))))
+
+(defun get-contributions ()
+  (setf (ht:content-type*) "text/html")
   (who:with-html-output-to-string (*standard-output*)
-  (let ((year (parse-integer (or (ht:get-parameter "year") "2025"))))
-    (components:contributions-chart
-      :year year 
-      :box-width 10 
-      :box-margin 2 
-      :text-height 15 
-      :scale-factor 1.0))))
+    (let ((year (parse-integer (or (ht:get-parameter "year") "2025"))))
+      (components:contributions-chart
+        :year year 
+        :box-width 10 
+        :box-margin 2 
+        :text-height 15 
+        :scale-factor 1.0))))
+
+(defun update-contributions (year-param) 
+  (if (not year-param) 
+    (progn
+      (setf (ht:return-code*) 400)
+      "{\"error\": \"Bad Request - Year is required\"}")
+    (handler-case 
+      (let ((year (parse-integer year-param)))
+        (if (string= (or (ht:header-in* "X-API-Key") "")
+                     (config:get-secret-api-key config:*config*))
+            (progn 
+              (setf (ht:return-code*) 200)
+              "{\"message\": \"Contributions updated\"}")
+            (progn
+              (ht:log-message* :info "Forbidden request with key: ~a" (ht:header-in* "X-API-Key"))
+              (ht:log-message* :info "Expected key: ~a" (config:get-secret-api-key config:*config*))
+              (setf (ht:return-code*) 403)
+              "{\"error\": \"Forbidden\"}")))
+      (error (e) 
+        (setf (ht:return-code*) 400)
+        "{\"error\": \"Bad Request - Year must be an integer\"}"))))
 
 
 (defun get-session-index ()
-  (or (hunchentoot:session-value 'language-index) 0))
+  (or (ht:session-value 'language-index) 0))
 
 (defun set-session-index (index)
-  (setf (hunchentoot:session-value 'language-index) index))
+  (setf (ht:session-value 'language-index) index))
 
 (defparameter *languages* #("go" "rust" "lua" "cl" "solidity"))
 
 (defun languages-handler ()
-  (setf (hunchentoot:content-type*) "text/html")
-  (let* ((direction (hunchentoot:get-parameter "direction"))
+  (setf (ht:content-type*) "text/html")
+  (let* ((direction (ht:get-parameter "direction"))
          (current (get-session-index))
          (len (length *languages*))
          (next-index (mod (if (string= direction "prev")

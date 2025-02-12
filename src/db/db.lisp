@@ -29,6 +29,16 @@
                          (str:split ";" schema)))
         (sqlite:execute-non-query db (string-trim '(#\Space #\Newline #\Tab) statement))))))
 
+(defun get-contributions (year)
+  (sqlite:with-open-database (db (config:get-db-path config:*config*))
+    (mapcar (lambda (row)
+      (destructuring-bind (date count level) row
+        `(:date ,date :count ,count :level ,level)))
+    (sqlite:execute-to-list
+      db 
+      "SELECT date, count, level FROM contributions WHERE strftime('%Y', date) = ?"
+      (write-to-string year)))))
+
 (defun insert-contribution (date count level) 
   (sqlite:with-open-database (db (config:get-db-path config:*config*))
     (sqlite:execute-non-query 

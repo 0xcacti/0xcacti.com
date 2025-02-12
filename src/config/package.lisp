@@ -5,4 +5,5 @@
            #:load-env-file
            #:get-github-token
            #:get-db-path
-           #:get-db-schema-path))
+           #:get-db-schema-path
+           #:get-secret-api-key))

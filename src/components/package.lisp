@@ -2,7 +2,7 @@
   (:use #:cl 
         #:cl-who)
   (:local-nicknames (:config #:0xcacti-website.config)
-                    (:services #:0xcacti-website.services))
+                    (:db #:0xcacti-website.db))
   (:export #:with-base-page
            #:arrow-right
            #:arrow-left

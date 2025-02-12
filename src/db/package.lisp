@@ -6,4 +6,5 @@
   (:export
     :init-db
     :verify-db-setup
-    :populate-historical-data))
+    :populate-historical-data
+    :get-contributions))

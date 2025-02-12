@@ -30,7 +30,7 @@
             (days-left-in-year days-in-year)  
             (first-date (encode-universal-time 0 0 0 1 1 ,year))
             (first-day-in-year (get-first-day-of-year ,year))
-            (filtered-data (services:get-filtered-contributions "0xcacti" ,year)))
+            (filtered-data (db:get-contributions ,year))) 
 
        (htm
          (:svg 
