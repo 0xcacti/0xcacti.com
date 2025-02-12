@@ -48,6 +48,7 @@
 
 (defun update-year (year) 
   (let ((contributions (services:get-filtered-contributions year)))
+    (ht:log-message* "Updating year ~a with ~a contributions" year (length contributions))
     (dolist (contrib contributions) 
       (insert-contribution 
         (getf contrib :date)

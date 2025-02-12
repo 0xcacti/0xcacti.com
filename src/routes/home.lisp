@@ -127,7 +127,7 @@
 (defun get-contributions ()
   (setf (ht:content-type*) "text/html")
   (who:with-html-output-to-string (*standard-output*)
-    (let ((year (parse-integer (or (ht:get-parameter "year") "2025"))))
+    (let ((year (parse-integer (or (ht:get-parameter "year") "2025") :junk-allowed t)))
       (components:contributions-chart
         :year year 
         :box-width 10 
@@ -136,24 +136,29 @@
         :scale-factor 1.0))))
 
 (defun update-contributions (year-param) 
+  (ht:log-message* "Raw year param: ~s (length: ~a)" year-param (length year-param))
+
   (if (not year-param) 
     (progn
       (setf (ht:return-code*) 400)
       "{\"error\": \"Bad Request - Year is required\"}")
-    (handler-case 
-      (let ((year (parse-integer year-param)))
-        (if (string= (or (ht:header-in* "X-API-Key") "")
-                     (config:get-secret-api-key config:*config*))
-            (progn 
-              (setf (ht:return-code*) 200)
+    (if (string= (or (ht:header-in* "X-API-Key") "")
+                 (config:get-secret-api-key config:*config*))
+        (handler-case 
+          (let ((year (parse-integer year-param)))
+            (setf (ht:return-code*) 200)
+            (handler-case 
               (db:update-year year)
-              "{\"message\": \"Contributions updated\"}")
-            (progn
-              (setf (ht:return-code*) 403)
-              "{\"error\": \"Forbidden\"}")))
-      (error (e) 
-        (setf (ht:return-code*) 400)
-        "{\"error\": \"Bad Request - Year must be an integer\"}"))))
+              (error (e) 
+                (setf (ht:return-code*) 400)
+                "{\"error\": \"Bad Request - er\"}"))
+            "{\"message\": \"Contributions updated\"}")
+          (error (e) 
+            (setf (ht:return-code*) 400)
+            "{\"error\": \"Bad Request - Year must be an integer\"}"))
+        (progn
+          (setf (ht:return-code*) 403)
+          "{\"error\": \"Forbidden\"}"))))
 
 
 (defun get-session-index ()

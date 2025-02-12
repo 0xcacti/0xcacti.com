@@ -44,7 +44,7 @@
        (:file "contributions")))
      (:module "routes" 
       :serial t
-      :depends-on ("config" "components")
+      :depends-on ("config" "db" "components")
       :components
       ((:file "package")
        (:file "routes")
