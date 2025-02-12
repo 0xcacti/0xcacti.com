@@ -46,6 +46,14 @@
       "INSERT OR REPLACE INTO contributions (date, count, level) VALUES (?, ?, ?)"
       date count level)))
 
+(defun update-year (year) 
+  (let ((contributions (services:get-filtered-contributions year)))
+    (dolist (contrib contributions) 
+      (insert-contribution 
+        (getf contrib :date)
+        (getf contrib :count)
+        (getf contrib :level)))))
+
 (defun populate-historical-data (username)
   (let ((current-year (nth-value 5 (get-decoded-time))))
     (loop for year from *first-year* to current-year do 

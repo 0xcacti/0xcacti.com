@@ -7,4 +7,5 @@
     :init-db
     :verify-db-setup
     :populate-historical-data
-    :get-contributions))
+    :get-contributions
+    :update-year))

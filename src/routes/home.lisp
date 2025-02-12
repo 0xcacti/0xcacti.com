@@ -146,10 +146,9 @@
                      (config:get-secret-api-key config:*config*))
             (progn 
               (setf (ht:return-code*) 200)
+              (db:update-year year)
               "{\"message\": \"Contributions updated\"}")
             (progn
-              (ht:log-message* :info "Forbidden request with key: ~a" (ht:header-in* "X-API-Key"))
-              (ht:log-message* :info "Expected key: ~a" (config:get-secret-api-key config:*config*))
               (setf (ht:return-code*) 403)
               "{\"error\": \"Forbidden\"}")))
       (error (e) 
