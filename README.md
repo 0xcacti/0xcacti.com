@@ -36,9 +36,12 @@ sbcl --load quicklisp.lisp --eval '(quicklisp-quickstart:install)' --eval '(ql:a
 2. Application Setup 
 
 ```
-git clone https://github.com/yourusername/0xcacti-website.git
+git clone https://github.com/0xcacti/0xcacti.com.git
 cd 0xcacti-website
-sbcl --load "scripts/setup-db.lisp"
 
+mkdir -p ~/quicklisp/local-projects/
+ln -s $(pwd) ~/quicklisp/local-projects/0xcacti-website
+
+sbcl --load "scripts/setup-db.lisp"
 ```
 
