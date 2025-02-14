@@ -1,5 +1,5 @@
 #!/bin/bash 
-
+cd /root/0xcacti.com
 echo "Beginning contributions update for $(date)"
 YEAR=$(date +%Y)
 SECRET_API_KEY=$(grep '^SECRET_API_KEY=' .env | cut -d '=' -f2-)
