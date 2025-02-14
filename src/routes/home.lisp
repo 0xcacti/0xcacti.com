@@ -136,7 +136,6 @@
         :scale-factor 1.0))))
 
 (defun update-contributions (year-param) 
-  (ht:log-message* "Raw year param: ~s (length: ~a)" year-param (length year-param))
 
   (if (not year-param) 
     (progn
@@ -147,7 +146,6 @@
         (handler-case 
           (let ((year (parse-integer year-param)))
             (setf (ht:return-code*) 200)
-            (ht:log-message* "Parsed year right before db: ~a" year)
             (handler-case 
               (db:update-year year)
               (error (e) 

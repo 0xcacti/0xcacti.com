@@ -48,13 +48,9 @@
 
 (defun update-year (year) 
   (let ((contributions (services:get-filtered-contributions "0xcacti" year)))
-    (ht:log-message* "Updating year ~a with ~a contributions" year (length contributions))
-    
     (when (null contributions)
-      (ht:log-message* "No contributions found for year ~a" year)) ;; Debugging
-
+      (ht:log-message* "No contributions found for year ~a" year)) 
     (dolist (contrib contributions) 
-      (ht:log-message* "Inserting contribution: ~a" contrib) ;; Debugging
       (insert-contribution 
         (getf contrib :date)
         (getf contrib :count)
