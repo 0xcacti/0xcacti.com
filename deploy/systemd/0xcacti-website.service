@@ -1,20 +1,14 @@
-# deploy/systemd/0xcacti-website.service
 [Unit]
-Description=0xcacti Website
+Description=0xcacti.com
 After=network.target
 
 [Service]
 Type=simple
-User=ubuntu
-WorkingDirectory=/path/to/your/app
-ExecStart=/usr/local/bin/sbcl --load "scripts/develop.lisp"
+User=root
+WorkingDirectory=/root/0xcacti.com
+ExecStart=/usr/bin/sbcl --load "scripts/start.lisp"
 Restart=always
 RestartSec=5
-
-# Security
-ProtectSystem=strict
-ProtectHome=read-only
-NoNewPrivileges=yes
 
 # Resource limits
 MemoryMax=1G
