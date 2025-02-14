@@ -13,9 +13,32 @@ Then, I remembered that my website sux.
 So I decided to re-write it using Common Lisp using HTMX, and boom, this weird project was born.
 
 
-### TODO 
+### Hosting 
 
-- [x] Add sqllite cacheing
-- [x] Cleanup anything 
-- [x] Add a favicon
-- [ ] Host
+To host I decided to just go simple and rent a vps and use systemd. 
+
+Steps: 
+
+1. Initial Setup 
+
+``` 
+# Update system
+sudo apt update && sudo apt upgrade -y
+
+# Install required packages
+sudo apt install -y sbcl nginx certbot python3-certbot-nginx sqlite3
+
+# Install Quicklisp
+curl -O https://beta.quicklisp.org/quicklisp.lisp
+sbcl --load quicklisp.lisp --eval '(quicklisp-quickstart:install)' --eval '(ql:add-to-init-file)' --quit
+```
+
+2. Application Setup 
+
+```
+git clone https://github.com/yourusername/0xcacti-website.git
+cd 0xcacti-website
+sbcl --load "scripts/setup-db.lisp"
+
+```
+
