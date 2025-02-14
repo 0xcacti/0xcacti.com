@@ -47,13 +47,19 @@
       date count level)))
 
 (defun update-year (year) 
-  (let ((contributions (services:get-filtered-contributions year)))
+  (let ((contributions (services:get-filtered-contributions "0xcacti" year)))
     (ht:log-message* "Updating year ~a with ~a contributions" year (length contributions))
+    
+    (when (null contributions)
+      (ht:log-message* "No contributions found for year ~a" year)) ;; Debugging
+
     (dolist (contrib contributions) 
+      (ht:log-message* "Inserting contribution: ~a" contrib) ;; Debugging
       (insert-contribution 
         (getf contrib :date)
         (getf contrib :count)
         (getf contrib :level)))))
+
 
 (defun populate-historical-data (username)
   (let ((current-year (nth-value 5 (get-decoded-time))))

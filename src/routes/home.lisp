@@ -147,6 +147,7 @@
         (handler-case 
           (let ((year (parse-integer year-param)))
             (setf (ht:return-code*) 200)
+            (ht:log-message* "Parsed year right before db: ~a" year)
             (handler-case 
               (db:update-year year)
               (error (e) 
