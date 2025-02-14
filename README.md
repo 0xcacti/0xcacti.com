@@ -72,3 +72,16 @@ sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
 sudo nginx -t
 sudo systemctl restart nginx
 ```
+
+5. Script Setup 
+
+``` 
+# Make script executable
+chmod +x scripts/daily.sh
+
+# Open crontab editor
+crontab -e
+
+# Add this line to run at midnight every day
+0 0 * * * /root/0xcacti.com/scripts/daily.sh >> /var/log/0xcacti-daily.log 2>&1
+```
