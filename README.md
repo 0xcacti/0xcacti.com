@@ -45,3 +45,30 @@ ln -s $(pwd) ~/quicklisp/local-projects/0xcacti-website
 sbcl --load "scripts/setup-db.lisp"
 ```
 
+3. Service Setup 
+
+```
+# Copy systemd service
+sudo cp deploy/systemd/0xcacti-website.service /etc/systemd/system/
+
+# Start and enable service
+sudo systemctl daemon-reload
+sudo systemctl start 0xcacti-website
+sudo systemctl enable 0xcacti-website
+```
+
+4. Nginx Setup 
+
+```
+# Copy Nginx config
+sudo cp deploy/nginx/0xcacti-website.conf /etc/nginx/sites-available/
+sudo ln -s /etc/nginx/sites-available/0xcacti-website.conf /etc/nginx/sites-enabled/
+sudo rm -f /etc/nginx/sites-enabled/default
+
+# Get SSL certificate
+sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+
+# Test and restart Nginx
+sudo nginx -t
+sudo systemctl restart nginx
+```
