@@ -84,7 +84,7 @@
                         :transform (format nil "translate(~A, 0)" (* week (+ box-width box-margin)))
                         (cond 
                          ((= week 0)
-                          (let ((day-idx (get-first-day-of-year 2024)))
+                          (let ((day-idx (get-first-day-of-year ,year)))
                             (loop for day from day-idx to 6
                                do (decf days-left-in-year)
                                (htm
