@@ -21,7 +21,7 @@
        (:script :src "/static/htmx.min.js")
        (:script :src "https://cdn.tailwindcss.com"))
       (:body :class "min-h-screen flex flex-col"
-        (:div :class "container mx-auto flex justify-between items-center px-4 py-6"
+        (:div :class "container mx-auto flex justify-between items-center px-4 py-4"
                (:div :class "flex flex-grow justify-start items-center gap-4 text-4xl"
                      (:a :href "/" :class "hover:text-red-500" "0xcacti")
                      (:div :class "hidden sm:block w-[1px] self-stretch bg-red-500 mx-2")

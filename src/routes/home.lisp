@@ -42,7 +42,7 @@
             :description "An optimized version of tictactoe in solidity")
         ))
 
-        (:div :class "flex flex-col justify-start rounded-lg p-4 border border-gray-300 text-xs h-[535px]" 
+        (:div :class "flex flex-col justify-start rounded-lg p-4 border border-gray-300 text-xs h-[555px]" 
          (:div :class "flex justify-start text-2xl font-light text-black"
             "Languages"
           (:div :class "flex flex-grow justify-end  gap-1"
