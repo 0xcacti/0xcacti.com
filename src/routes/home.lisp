@@ -11,6 +11,13 @@
           "Recent Projects")
        (:div 
         :class "grid gap-4 sm:gap-6"
+
+          (components:project 
+            :name "lua-invaders" 
+            :link "https://github.com/0xcacti/lua-invaders" 
+            :language "lua"
+            :description "Using lua and love2D to create a simple space invaders game")
+
           (components:project
             :name "0xcacti.com"
             :link "https://github.com/0xcacti/0xcacti.com"
