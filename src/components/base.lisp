@@ -19,7 +19,47 @@
         
        ;; scripts
        (:script :src "/static/htmx.min.js")
-       (:script :src "https://cdn.tailwindcss.com"))
+       (:script :src "https://cdn.tailwindcss.com")
+
+       (:script
+  "
+  document.addEventListener('DOMContentLoaded', function() {
+    // Create tooltip div once
+    var tooltip = document.createElement('div');
+    tooltip.id = 'tooltip';
+    tooltip.style.position = 'absolute';
+    tooltip.style.padding = '4px 8px';
+    tooltip.style.background = 'rgba(0,0,0,0.75)';
+    tooltip.style.color = 'white';
+    tooltip.style.borderRadius = '4px';
+    tooltip.style.pointerEvents = 'none';
+    tooltip.style.visibility = 'hidden';
+    tooltip.style.fontSize = '12px';
+    tooltip.style.zIndex = '9999';
+    document.body.appendChild(tooltip);
+    
+    // Use event delegation
+    document.addEventListener('mouseover', function(event) {
+      var target = event.target;
+      var tooltipText = target.getAttribute('data-tooltip');
+      if (tooltipText) {
+        tooltip.textContent = tooltipText;
+        tooltip.style.left = (event.pageX + 8) + 'px';
+        tooltip.style.top = (event.pageY + 8) + 'px';
+        tooltip.style.visibility = 'visible';
+      }
+    });
+    
+    document.addEventListener('mouseout', function(event) {
+      var target = event.target;
+      if (target.hasAttribute('data-tooltip')) {
+        tooltip.style.visibility = 'hidden';
+      }
+    });
+  });
+  ")
+      )
+
       (:body :class "min-h-screen flex flex-col"
         (:div :class "container mx-auto flex justify-between items-center px-4 py-4"
                (:div :class "flex flex-grow justify-start items-center gap-4 text-4xl"
@@ -38,5 +78,6 @@
                       )))
                (:div :class "sm:hidden text-xl text-center"
                   "Christian, software engineer, programming language nerd, ascii art fan")
-       ,@body))))
+       ,@body
+       ))))
 

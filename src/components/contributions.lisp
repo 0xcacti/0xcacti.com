@@ -18,7 +18,7 @@
         ((= level 4) "#216e39")))
 
 (defmacro contributions-chart (&key (year 2025) (box-width 10) (box-margin 2) (text-height 15) (scale-factor 1.0))
-  `(with-html-output (*standard-output*)
+  `(with-html-output (*standard-output* nil :prologue t)
      (let* ((height (* 722 ,scale-factor))
             (width (* 112 ,scale-factor))
             (box-width (* ,box-width ,scale-factor))
@@ -34,6 +34,7 @@
 
        (htm
          (:svg 
+          :xmlns "http://www.w3.org/2000/svg"
           :width "722"
           :height "112"
           :viewBox (format nil "0 0 ~A ~A" height width)
@@ -86,7 +87,12 @@
                          ((= week 0)
                           (let ((day-idx (get-first-day-of-year ,year)))
                             (loop for day from day-idx to 6
-                               do (decf days-left-in-year)
+                             for idx = (- days-in-year days-left-in-year)
+                             for datum = (nth idx filtered-data)
+                             for date = (getf datum :date) 
+                             for cnt = (getf datum :count)
+                             do (decf days-left-in-year)
+                             do
                                (htm
                                  (:rect
                                   :x 0
@@ -98,6 +104,7 @@
                                          (getf 
                                            (nth (- days-in-year days-left-in-year) filtered-data)
                                            :level))
+                                  :data-tooltip (format nil "~A: ~D contributions" date cnt)
                                   )))))
                          ((= week 52)
                           (let ((remaining days-left-in-year))
