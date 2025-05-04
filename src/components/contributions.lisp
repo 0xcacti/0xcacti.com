@@ -24,6 +24,12 @@
          (month-names #("" "January" "February" "March" "April" "May" "June" 
                         "July" "August" "September" "October" "November" "December"))
          (month-name (aref month-names month-num))
+         (no-or-num  (if (> count 0) 
+                        (format nil "~D" count)
+                        "No"))
+         (should-pluralize (cond ((= count 0) "contributions")
+                                 ((= count 1) "contribution")
+                                 (t "contributions")))
          (day-with-suffix (format nil "~D~A" 
                                   day-num 
                                   (cond ((and (>= day-num 11) (<= day-num 13)) "th")
@@ -31,8 +37,8 @@
                                         ((= (mod day-num 10) 2) "nd")
                                         ((= (mod day-num 10) 3) "rd")
                                         (t "th")))))
-    (format nil "~D contributions on ~A ~A."
-            count month-name day-with-suffix)))
+    (format nil "~A ~A on ~A ~A."
+            no-or-num should-pluralize month-name day-with-suffix)))
 
 
 (defmacro contributions-chart (&key (year 2025) (box-width 10) (box-margin 2) (text-height 15) (scale-factor 1.0))
