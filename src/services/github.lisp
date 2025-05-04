@@ -57,4 +57,7 @@
 (defun get-filtered-contributions (username year) 
      (let* ((contributions (get-contributions "0xcacti" year))
             (filtered-data (filter-contributions contributions)))
+        (format t "First dates: ~{~a ~}~%" 
+            (loop for i from 0 to 5 
+                  collect (getf (nth i filtered-data) :date)))
       filtered-data))

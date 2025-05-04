@@ -17,6 +17,24 @@
         ((= level 3) "#30a14e")
         ((= level 4) "#216e39")))
 
+(defun format-date-with-ordinal (date-string count) 
+  (let* ((year-month-day (cl-ppcre:split "-" date-string))
+         (month-num (parse-integer (second year-month-day)))
+         (day-num (parse-integer (third year-month-day)))
+         (month-names #("" "January" "February" "March" "April" "May" "June" 
+                        "July" "August" "September" "October" "November" "December"))
+         (month-name (aref month-names month-num))
+         (day-with-suffix (format nil "~D~A" 
+                                  day-num 
+                                  (cond ((and (>= day-num 11) (<= day-num 13)) "th")
+                                        ((= (mod day-num 10) 1) "st")
+                                        ((= (mod day-num 10) 2) "nd")
+                                        ((= (mod day-num 10) 3) "rd")
+                                        (t "th")))))
+    (format nil "~D contributions on ~A ~A."
+            count month-name day-with-suffix)))
+
+
 (defmacro contributions-chart (&key (year 2025) (box-width 10) (box-margin 2) (text-height 15) (scale-factor 1.0))
   `(with-html-output (*standard-output* nil :prologue t)
      (let* ((height (* 722 ,scale-factor))
@@ -91,6 +109,7 @@
                              for datum = (nth idx filtered-data)
                              for date = (getf datum :date) 
                              for cnt = (getf datum :count)
+                             for level = (getf datum :level)
                              do (decf days-left-in-year)
                              do
                                (htm
@@ -100,16 +119,17 @@
                                   :width box-width
                                   :height box-width
                                   :rx (/ box-width 4)  
-                                  :fill (assign-color
-                                         (getf 
-                                           (nth (- days-in-year days-left-in-year) filtered-data)
-                                           :level))
-                                  :data-tooltip (format nil "~A: ~D contributions" date cnt)
+                                  :fill (assign-color level)
+                                  :data-tooltip (format-date-with-ordinal date cnt)
                                   )))))
                          ((= week 52)
                           (let ((remaining days-left-in-year))
                           (loop for day from 0 below remaining
                                 for index = (- days-in-year days-left-in-year)
+                                for datum = (nth index filtered-data)
+                                for date = (getf datum :date)
+                                for cnt = (getf datum :count)
+                                for level = (getf datum :level)
                                 do (decf days-left-in-year)
                                 do
                                   (htm
@@ -119,13 +139,16 @@
                                      :width box-width
                                      :height box-width
                                      :rx (/ box-width 4)  
-                                     :fill (assign-color 
-                                          (getf 
-                                            (nth index filtered-data)
-                                            :level))
+                                     :fill (assign-color level)
+                                     :data-tooltip (format-date-with-ordinal date cnt)
                                     )))))
                          (t
                           (loop for day from 0 to 6
+                                for idx = (- days-in-year days-left-in-year)
+                                for datum = (nth idx filtered-data)
+                                for date = (getf datum :date)
+                                for cnt = (getf datum :count)
+                                for level = (getf datum :level)
                                 do (decf days-left-in-year)
                                 (htm
                                   (:rect
@@ -134,9 +157,7 @@
                                    :width box-width
                                    :height box-width
                                    :rx (/ box-width 4)  
-                                   :fill (assign-color 
-                                          (getf 
-                                            (nth (- days-in-year days-left-in-year) filtered-data)
-                                            :level))
+                                   :fill (assign-color level)
+                                   :data-tooltip (format-date-with-ordinal date cnt)
 
                                    ))))))))))))))))
