@@ -18,6 +18,12 @@
             :language "lua"
             :description "Using lua and love2D to create a simple space invaders game")
 
+          (components:project 
+            :name "Monkey Treesitter Parser" 
+            :link "https://github.com/0xcacti/interpreter/tree/main/tree-sitter-monkey"
+            :language "rust"
+            :description "A treesitter parser for Thorsten Ball's Monkey language")
+
           (components:project
             :name "0xcacti.com"
             :link "https://github.com/0xcacti/0xcacti.com"
@@ -37,7 +43,7 @@
             :description "An implementation of ping in rust")
 
           (components:project 
-            :name "interpreter" 
+            :name "Monkey Interpreter" 
             :link "https://github.com/0xcacti/interpreter"
             :language "rust"
             :description "An implementation of Thorsten Ball's Monkey language in rust")
