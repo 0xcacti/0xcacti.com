@@ -12,6 +12,12 @@
        (:div 
         :class "grid gap-4 sm:gap-6"
 
+          ;; (componentns:project 
+          ;;   :name "HTTP1.1" 
+          ;;   :link "https://github.com/0xcacti/http1.1"
+          ;;   :language "c"
+          ;;   :description "An implementation of HTTP1.1 in C")
+
           (components:project 
             :name "lua-invaders" 
             :link "https://github.com/0xcacti/lua-invaders" 
