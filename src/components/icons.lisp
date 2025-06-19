@@ -47,7 +47,7 @@
 
 (defmacro solidity-logo (&key (class "h-6 w-6"))
   `(with-html-output (*standard-output*)
-     (:a :href "https://rust-lang.org"
+     (:a :href "https://soliditylang.org/"
       (:svg :xmlns "http://www.w3.org/2000/svg" 
        :viewbox "0 0 24 24"
        :class ,class
@@ -57,11 +57,11 @@
 (defmacro c-logo (&key (class "h-6 w-6"))
   `(with-html-output (*standard-output*)
      (:a :href "https://en.wikipedia.org/wiki/C_(programming_language)"
-      (:svg :xmlns "http://www.w3.org/2000/svg" 
-       :viewbox "0 0 24 24"
-       :class ,class
-       (:path :fill "currentColor"
-        :d "M252.71 93.61a21.67 21.67 0 0 0-2.65-10.87 20.74 20.74 0 0 0-7.87-7.67Q198.77 50 155.32 25c-7.8-4.51-15.36-4.35-23.11.23C120.69 32 63 65.09 45.81 75.06c-7.08 4.1-10.52 10.38-10.52 18.54v100.8a21.77 21.77 0 0 0 2.55 10.66 20.63 20.63 0 0 0 8 7.88c17.19 10 74.89 43.05 86.41 49.85 7.75 4.58 15.31 4.74 23.12.23q43.41-25.08 86.87-50.09a20.63 20.63 0 0 0 8-7.88 21.77 21.77 0 0 0 2.55-10.66V93.61z")))))
+       (:svg :xmlns "http://www.w3.org/2000/svg"
+        :viewbox "0 0 455 512"
+        :class ,class
+        (:path :fill "currentColor"
+         :d "M435.28 113.284L247.19 4.692c-10.835-6.256-28.567-6.256-39.402 0L19.701 113.284C8.865 119.54 0 134.896 0 147.408v217.184c.843 14.572 8.286 26.64 19.7 34.124l188.09 108.591c10.834 6.257 28.566 6.257 39.401 0L435.28 398.716c12.248-8.146 19.22-20.408 19.701-34.124V147.408c-.44-13.165-8.323-26.443-19.7-34.124M83.83 256.001c-.891-148.09 197.46-213.48 282.996-75.878l-65.634 37.98c-39.622-65.533-138.001-42.1-141.532 37.898c1.06 73.729 97.754 107.978 141.536 37.892l65.635 37.98c-75.383 130.862-279.2 83.78-283-75.872")))))
 
 (defmacro arrow-right (&key (class "h-6 w-6"))
   `(with-html-output (*standard-output*)

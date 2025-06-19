@@ -6,7 +6,7 @@
        ((string= ,language "cl") (cl-logo :class ,svg-class))
        ((string= ,language "rust") (rust-logo :class ,svg-class))
        ((string= ,language "solidity") (solidity-logo :class ,svg-class))
-       ((string= ,language "c" (c-logo :class ,svg-class))
+       ((string= ,language "c") (c-logo :class ,svg-class))
        (t (error "Language not supported"))))
 
 (defmacro project (&key name link language description)
