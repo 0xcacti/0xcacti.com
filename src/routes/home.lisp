@@ -5,8 +5,8 @@
   (components:with-base-page (:title "0xcacti")
     (:div :class "container mx-auto flex flex-col justify-between items-center gap-3 p-2"
       
-     (:div :class "w-full pt-3 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-3" 
-      (:div :class "flex flex-col justify-start rounded-lg p-4 border border-gray-300 overflow-y-auto" 
+     (:div :class "w-full pt-3 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-3 h-[555px] min-h-0" 
+      (:div :class "flex flex-col justify-start rounded-lg p-4 border border-gray-300 overflow-y-auto min-h-0 h-full" 
        (:div :class "mb-8 text-2xl font-light text-black"
           "Recent Projects")
        (:div 
@@ -61,7 +61,7 @@
             :description "An optimized version of tictactoe in solidity")
         ))
 
-        (:div :class "flex flex-col justify-start rounded-lg p-4 border border-gray-300 text-xs h-[555px]" 
+        (:div :class "flex flex-col justify-start rounded-lg p-4 border border-gray-300 text-xs min-h-0 h-full" 
          (:div :class "flex justify-start text-2xl font-light text-black"
             "Languages"
           (:div :class "flex flex-grow justify-end  gap-1"
@@ -86,7 +86,7 @@
             (components:arrow-right :class "h-6 w-6 group-hover:text-red-500")
             )
            ))
-        (:div :id "languages" :class "flex-1 min-h-0 flex flex-col"
+        (:div :id "languages" :class "flex-1 min-h-0 flex flex-col overflow-y-auto"
           (components:language :language "go"))
 
          ))
