@@ -12,6 +12,12 @@
        (:div 
         :class "grid gap-4 sm:gap-6"
 
+          (components:project
+            :name "shrew"
+            :link "https://github.com/0xcacti/shrew"
+            :language "c"
+            :description "A miniature lisp")
+
           (components:project 
             :name "HTTP1.1" 
             :link "https://github.com/0xcacti/http1.1"
