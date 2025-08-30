@@ -19,7 +19,7 @@
         
        ;; scripts
        (:script :src "/static/htmx.min.js")
-       (:script :src "https://cdn.tailwindcss.com")
+       (:link :rel "stylesheet" :href "/static/tailwind.css")
 
        (:script
   "
