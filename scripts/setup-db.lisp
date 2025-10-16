@@ -13,3 +13,4 @@
 ;; Get the contributions for the year 2025
 (0xcacti-website.db:get-contributions 2025)
 
+

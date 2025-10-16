@@ -25,9 +25,9 @@
   (let* ((token (config:get-github-token config:*config*))
          (start-time (format nil "~A-01-01T00:00:00Z" year))
          (end-time (format nil "~A-12-31T23:59:59Z" year))
-         (query "query($username: String!, $from: DateTime, $to: DateTime) {
+         (query "query($username: String!, $from: DateTime, $to: DateTime, $includePrivate: Boolean!) {
                   user(login: $username) {
-                    contributionsCollection(from: $from, to: $to) {
+                    contributionsCollection(from: $from, to: $to, includePrivateContributions: $includePrivate) {
                       contributionCalendar {
                         totalContributions
                         weeks {
@@ -44,7 +44,8 @@
                    `(("query" . ,query)
                      ("variables" . (("username" . ,username)
                                    ("from" . ,start-time)
-                                   ("to" . ,end-time))))))
+                                   ("to" . ,end-time)
+                                   ("includePrivate" . t))))))
          (response (dk:http-request "https://api.github.com/graphql"
                     :method :post
                     :content-type "application/json"
