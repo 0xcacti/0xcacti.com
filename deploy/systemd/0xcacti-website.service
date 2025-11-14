@@ -6,6 +6,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/root/0xcacti.com
+EnvironmentFile=/root/0xcacti.com/.env
 ExecStart=/usr/bin/sbcl --load "scripts/start.lisp"
 Restart=always
 RestartSec=5
