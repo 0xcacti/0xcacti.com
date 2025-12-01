@@ -12,6 +12,12 @@
        (:div 
         :class "grid gap-4 sm:gap-6"
 
+          (components:project 
+            :name "rayplace" 
+            :link "https://github.com/0xcacti/rayplace"
+            :language "c"
+            :description "A miniature wallpaper replace using raylib")
+
           (components:project
             :name "shrew"
             :link "https://github.com/0xcacti/shrew"
