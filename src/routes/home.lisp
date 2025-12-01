@@ -16,7 +16,7 @@
             :name "rayplace" 
             :link "https://github.com/0xcacti/rayplace"
             :language "c"
-            :description "A miniature wallpaper replace using raylib")
+            :description "A miniature wallpaper replacer using raylib")
 
           (components:project
             :name "shrew"
