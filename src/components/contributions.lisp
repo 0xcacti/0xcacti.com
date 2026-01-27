@@ -41,7 +41,7 @@
             no-or-num should-pluralize month-name day-with-suffix)))
 
 
-(defmacro contributions-chart (&key (year 2025) (box-width 10) (box-margin 2) (text-height 15) (scale-factor 1.0))
+(defmacro contributions-chart (&key (year 2026) (box-width 10) (box-margin 2) (text-height 15) (scale-factor 1.0))
   `(with-html-output (*standard-output* nil :prologue t)
      (let* ((height (* 722 ,scale-factor))
             (width (* 112 ,scale-factor))

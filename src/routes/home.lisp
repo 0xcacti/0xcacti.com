@@ -121,6 +121,7 @@
             :hx-trigger "change"
             :hx-include "this"
             :onchange "this.blur()"
+            (:option :value "2026" "2026")
             (:option :value "2025" "2025")
             (:option :value "2024" "2024")
             (:option :value "2023" "2023")
@@ -158,7 +159,7 @@
 (defun get-contributions ()
   (setf (ht:content-type*) "text/html")
   (who:with-html-output-to-string (*standard-output*)
-    (let ((year (parse-integer (or (ht:get-parameter "year") "2025") :junk-allowed t)))
+    (let ((year (parse-integer (or (ht:get-parameter "year") "2026") :junk-allowed t)))
       (components:contributions-chart
         :year year 
         :box-width 10 

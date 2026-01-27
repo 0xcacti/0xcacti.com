@@ -11,6 +11,6 @@
 (0xcacti-website.db:populate-historical-data "0xcacti")
 
 ;; Get the contributions for the year 2025
-(0xcacti-website.db:get-contributions 2025)
+(0xcacti-website.db:get-contributions 2026)
 
 
