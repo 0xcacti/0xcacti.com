@@ -13,6 +13,9 @@ Then, I remembered that my website sux.
 So I decided to re-write it using Common Lisp using HTMX, and boom, this weird project was born.
 
 
+And so you know, lisp is so gas.  The most fun. 
+
+
 ### Hosting 
 
 To host I decided to just go simple and rent a vps and use systemd. 
