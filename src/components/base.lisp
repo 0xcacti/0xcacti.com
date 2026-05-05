@@ -66,7 +66,7 @@
                      (:a :href "/" :class "hover:text-red-500" "0xcacti")
                      (:div :class "hidden sm:block w-[1px] self-stretch bg-red-500 mx-2")
                      (:div :class "hidden sm:block text-lg md:text-xl"
-                        "Christian, software engineer, programming language nerd, ascii art fan"))
+                        "Catholic, software engineer, programming language nerd, ascii art fan"))
          
                (:div :class "flex justify-center items-center space-x-6 text-2xl"
                      ;;(:a :href "/blog" :class "hover:text-red-500" "blog")
@@ -77,7 +77,7 @@
                       (github-logo :class "h-6 w-6 hover:text-red-500")
                       )))
                (:div :class "sm:hidden text-xl text-center"
-                  "Christian, software engineer, programming language nerd, ascii art fan")
+                  "Catholic, software engineer, programming language nerd, ascii art fan")
        ,@body
        ))))
 
