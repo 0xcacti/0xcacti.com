@@ -12,6 +12,12 @@
        (:div 
         :class "grid gap-4 sm:gap-6"
 
+          (components:project
+            :name "core-utils"
+            :link "https://github.com/0xcacti/core-utils"
+            :language "c"
+            :description "Implementing a bunch of core-utils in C for fun")
+
           (components:project 
             :name "rayplace" 
             :link "https://github.com/0xcacti/rayplace"
