@@ -52,6 +52,12 @@
             :language "cl"
             :description "My personal website in common lisp + htmx")
 
+          (components:project
+            :name "0xcacti.com"
+            :link "https://github.com/0xcacti/lisp-testing"
+            :language "cl"
+            :description "A simple testing framework for CL using macros")
+
           (components:project 
             :name "chaplet.nvim" 
             :link "https://github.com/0xcacti/chaplet.nvim"
