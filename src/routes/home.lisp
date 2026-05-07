@@ -53,7 +53,7 @@
             :description "My personal website in common lisp + htmx")
 
           (components:project
-            :name "0xcacti.com"
+            :name "Lisp Testing"
             :link "https://github.com/0xcacti/lisp-testing"
             :language "cl"
             :description "A simple testing framework for CL using macros")
