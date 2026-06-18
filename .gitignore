@@ -50,6 +50,9 @@ yarn-error.log*
 *.db-shm
 *.bak
 
+# Tailwind standalone binary (downloaded, not source)
+/tailwindcss
+
 # CL stuff
 *.fasl
 *.FASL

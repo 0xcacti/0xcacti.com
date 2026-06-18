@@ -5,7 +5,7 @@
   (components:with-base-page (:title "0xcacti")
     (:div :class "container mx-auto flex flex-col justify-between items-center gap-3 p-2"
       
-     (:div :class "w-full pt-3 grid grid-cols-1 lg:grid-cols-2 gap-3 h-[555px] min-h-0 overflow-hidden"
+     (:div :class "w-full pt-3 grid grid-cols-1 lg:grid-cols-2 gap-3 h-[565px] min-h-0 overflow-hidden"
       (:div :class "flex flex-col justify-start rounded-lg p-4 border border-gray-300 min-h-0 h-full overflow-hidden"
        (:div :class "mb-8 text-2xl font-light text-black"
           "Recent Projects")
@@ -113,7 +113,7 @@
 
          ))
 
-     (:div :class "flex justify-center items-center w-full h-[150px] border rounded-lg border-gray-300 px-2"
+     (:div :class "flex justify-center items-center w-full h-[170px] border rounded-lg border-gray-300 px-2"
       (:div :class "flex flex-row items-end max-w-full overflow-x-scroll [scrollbar-gutter:stable] hover:overflow-x-scroll pb-2" 
           (:div 
            :id "chart-container"

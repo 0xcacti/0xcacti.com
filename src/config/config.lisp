@@ -14,8 +14,10 @@
                :reader get-secret-api-key
                :type string)))
 
-(defun load-env-file (&optional (path ".env"))
+(defun load-env-file (&optional (path (asdf:system-relative-pathname "0xcacti-website" ".env")))
   (with-open-file (stream path :if-does-not-exist nil)
+    (unless stream
+      (warn "No .env file found at ~a" path))
     (when stream
       (loop for line = (read-line stream nil nil)
             while line
